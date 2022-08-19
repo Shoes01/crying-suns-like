@@ -1,33 +1,66 @@
 extends Node2D
 
 
+var encounter_counter := 0
+var card_counter := 0
+var battle_counter := 0
+
+var mission = preload("res://missions/NewMission.gd").new()
+var player = preload("res://Player.gd").new()
+
 func _ready() -> void:
+	update_UI()
+
+
+func update_UI() -> void:
+	$Panel/VBoxContainer/MissionTitle.set_text(mission.title)
+	$Panel/VBoxContainer/EncounterTitle.set_text(mission.encounters[encounter_counter].title)
+	$Panel/VBoxContainer/Card/CardTitle.set_text(mission.encounters[encounter_counter].cards[card_counter].title)
+	$Panel/VBoxContainer/Card/CardDescription.set_text(mission.encounters[encounter_counter].cards[card_counter].description)
+	var battle_count_text = "Battle Count: " + str(battle_counter)
+	$Panel/VBoxContainer/BattleCount.set_text(battle_count_text)
+	var soldier_count_text = "SOLDIER COUNT: " + str(player.soldier_count)
+	$Panel/VBoxContainer/SoldierCount.set_text(soldier_count_text)
+
+
+func _on_FightButton_pressed() -> void:
+	var success : bool
 	
-	var mission = preload("res://missions/NewMission.gd").new()
-	var player = preload("res://Player.gd").new()
-	
-	print(mission.title.to_upper())
-	print("Soldier count: " + str(player.soldier_count))
-	for encounter in mission.encounters:
-		print("- " + encounter.title.to_upper())
-		for card in encounter.cards:
-			print("-- " + card.title)
-			if randf() > 0.50:
-				print("--- Success!")
-			else:
-				player.soldier_count -= 1
-				print("--- Casualty taken. Soldiers left: " + str(player.soldier_count))
-				if player.is_dead():
-					break
-		
-		if player.is_dead():
-			break
-		else:
-			print("- Encounter successful!")
-	
-	if player.is_dead():
-		print("Mission failed.")
+	if randf() > 0.5:
+		print("SUCCESS!")
+		success = true
 	else:
-		print("Mission successful!!")
+		print("Failure.")
+		success = false
+		player.soldier_count -= 1
+		print_soldier_count()
 	
+	card_counter += 1
+	battle_counter += 1
+	
+	check_player()
+	check_progress()
+	
+	update_UI()
+
+
+func check_player() -> void:
+	if player.soldier_count <= 0:
+		print("YOU HAVE LOST.")
+		print_soldier_count()
+
+
+func check_progress() -> void:
+	if card_counter >= mission.encounters[encounter_counter].cards.size():
+		card_counter = 0
+		encounter_counter += 1
+	
+	if encounter_counter >= mission.encounters.size():
+		$Panel/VBoxContainer/FightButton.set_disabled(true)
+		print("YOU HAVE WON.")
+		print_soldier_count()
+		encounter_counter = 0
+
+
+func print_soldier_count() -> void:
 	print("Soldiers remaining: " + str(player.soldier_count))
