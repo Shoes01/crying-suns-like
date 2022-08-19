@@ -1,0 +1,85 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Card",
+"class": "AttackCard",
+"language": "GDScript",
+"path": "res://cards/AttackCard.gd"
+}, {
+"base": "Node",
+"class": "Card",
+"language": "GDScript",
+"path": "res://cards/BaseCard.gd"
+}, {
+"base": "Card",
+"class": "DefenseCard",
+"language": "GDScript",
+"path": "res://cards/DefenseCard.gd"
+}, {
+"base": "Node",
+"class": "Encounter",
+"language": "GDScript",
+"path": "res://encounters/BaseEncounter.gd"
+}, {
+"base": "Encounter",
+"class": "FirstEncounter",
+"language": "GDScript",
+"path": "res://encounters/FirstEncounter.gd"
+}, {
+"base": "Node",
+"class": "Mission",
+"language": "GDScript",
+"path": "res://missions/BaseMission.gd"
+}, {
+"base": "Mission",
+"class": "NewMission",
+"language": "GDScript",
+"path": "res://missions/NewMission.gd"
+}, {
+"base": "Node",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player.gd"
+}, {
+"base": "Encounter",
+"class": "SecondEncounter",
+"language": "GDScript",
+"path": "res://encounters/SecondEncounter.gd"
+} ]
+_global_script_class_icons={
+"AttackCard": "",
+"Card": "",
+"DefenseCard": "",
+"Encounter": "",
+"FirstEncounter": "",
+"Mission": "",
+"NewMission": "",
+"Player": "",
+"SecondEncounter": ""
+}
+
+[application]
+
+config/name="crying-suns-like"
+run/main_scene="res://Main.tscn"
+config/icon="res://icon.png"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
