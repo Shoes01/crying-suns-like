@@ -1,11 +1,11 @@
 class_name Mission
 extends Node
 
-export var title := "base mission title"
-export var description := "base mission description"
-export var encounters : Array
-export var was_attempted := false
-export var was_succesful := false
+var title := "base mission title"
+var description := "base mission description"
+var encounters : Array
+var was_attempted := false
+var was_succesful := false
 
 var first_encounter = preload("res://encounters/FirstEncounter.gd")
 var second_encounter = preload("res://encounters/SecondEncounter.gd")

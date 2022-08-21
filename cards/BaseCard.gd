@@ -1,5 +1,5 @@
 class_name Card
 extends Node
 
-export var title = "base card title"
-export var description = "base card description"
+var title = "base card title"
+var description = "base card description"

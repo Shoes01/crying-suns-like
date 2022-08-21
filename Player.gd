@@ -1,7 +1,7 @@
 class_name Player
 extends Node
 
-export var soldier_count = 5
+var soldier_count = 5
 
 
 func _ready() -> void:

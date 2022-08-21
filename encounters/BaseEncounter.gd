@@ -1,11 +1,11 @@
 class_name Encounter
 extends Node
 
-export var title = "base encounter title"
-export var description = "base encounter description"
-export var cards : Array
-export var was_attempted := false
-export var was_succesful := false
+var title = "base encounter title"
+var description = "base encounter description"
+var cards : Array
+var was_attempted := false
+var was_succesful := false
 
 var attack_card = preload("res://cards/AttackCard.gd")
 var defense_card = preload("res://cards/DefenseCard.gd")
