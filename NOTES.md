@@ -1,29 +1,11 @@
-# MISSION STRUCTURE
-Mission -> Encounter -> Card
-
-Compared to Darkest Dungeon, a Mission :: Dungeon, an Encounter :: Room, and a Card :: Enemy-ish
-
-# MVP-1 GAMEPLAY
-Show the basic info on screen.
-Have a `Fight` button.
-    This "rolls" the dice to decide if there was a win or not.
-Continue fighting until the mission is won or lost.
-
-## TODO
-GameState singleton.
-    Use this on the GameOver scene to know if the game was a win or a loss
-
-# MVP-2 BASIC COMBAT ENGINE -- Cards have different power levels. 
-<!-- Skip this, because combat will not look like this at all. -->
-Cards have a number of soldiers on them, called X
-Player has a number of soldiers, called P
-roll 1dX and 1dP. 
-The loser loses 1dX - 1dP number of soldiers
-Roll until a winner is determined.
-    Player continues to click roll here
-Create a few more cards
-
-Stretch goal: winning an encounter allows the player to gain 1dM soldiers back, where M is the number of casualties sustained.
+# MVP-2 BASIC COMBAT ENGINE -- Introduce ICONS
+Show Active Unit, with available icons.
+Show Card, with icons to beat.
+When a battle is fought, show which icons on the card were beat.
+Calculate result
+    100% - no soldiers lost
+    50% - 99% - one soldier lost
+    0-49% - two soldiers lost
 
 # MVP-3 BASIC CAMPAIGN PROGRESS -- Choose one mission, or another.
 Give the player choice in which mission to take.
@@ -34,6 +16,8 @@ Have a few more different cards and encounters to make new missions
 Give player choice in which encounters to take.
 
 # FUTURE MVPS
+Soldier HP : Full HP, Wounded, Dead
+Finite State Machine
 Procgen within Missions
     A Mission may be pre-set to have 4 encounters: MainRoom, NextRoom, OtherRoom and LastRoom,
     but the Cards within the Encounter can be different. 
@@ -226,6 +210,10 @@ Currencies: Primary currencvy is MANPOWER, second is INFLUENCE.
     You are limited by the number of staff you, and the access you are granted.
     MANPOWER is spent on tasks. It is the basic currency.
     INFLUENCE is spent on _other stuff_. It is essentially looted from spaceships. There are icons for influence, but it will be used as "general" and "quest-specific".
+
+The XCOM dept can have non-combat staff, along with combat units.
+    Units perform Drills to improve. Some drills require the help of non-combat staff.
+    Non-combat staff will have tasks like helping drills, but also recruitment
 
 
 # GAME LOOP
