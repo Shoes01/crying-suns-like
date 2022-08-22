@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var mission_counter := 1
 var encounter_counter := 0
 var card_counter := 0
 var battle_counter := 0
@@ -41,17 +41,17 @@ func _on_FightButton_pressed() -> void:
 	check_player()
 	check_progress()
 	
-	update_log(success)
+	update_log(success, mission_counter, encounter_counter, card_counter)
 	update_UI()
 
 
-func update_log(value: bool) -> void:
+func update_log(battle_succes: bool, mission_count: int, encounter_count: int, card_count: int) -> void:
 	var log_text: String = $Panel/VBoxContainer/Control/Log.get_text()
 	var new_text : String
-	if value:
-		new_text = "> Battle successful!"
+	if battle_succes:
+		new_text = "> Enc " + str(encounter_counter + 1) + "/Card " + str(card_counter + 1) + ": Success!"
 	else:
-		new_text = "> Battle unsuccessful. 1 soldier lost."
+		new_text = "> Enc " + str(encounter_counter + 1) + "/Card " + str(card_counter + 1) + ": Failure. 1 soldier lost."
 	
 	log_text = new_text + "\n" + log_text
 	$Panel/VBoxContainer/Control/Log.set_text(log_text)
