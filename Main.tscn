@@ -56,19 +56,16 @@ offset_right = 743.0
 offset_bottom = 181.0
 text = "FIGHT!"
 
-[node name="Control" type="Control" parent="Panel/VBoxContainer"]
+[node name="Control" type="ScrollContainer" parent="Panel/VBoxContainer"]
 offset_top = 185.0
 offset_right = 743.0
 offset_bottom = 231.0
 size_flags_vertical = 3
 
 [node name="Log" type="Label" parent="Panel/VBoxContainer/Control"]
-clip_contents = true
-offset_top = 4.0
-offset_right = 743.0
-offset_bottom = 30.0
+offset_right = 132.0
+offset_bottom = 26.0
 text = "> Mission begins."
-clip_text = true
 
 [node name="SoldierCount" type="Label" parent="Panel/VBoxContainer"]
 offset_top = 235.0
