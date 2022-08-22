@@ -1,7 +1,2 @@
 res://Main.tscn
-res://missions/BaseMission.gd
-res://encounters/BaseEncounter.gd
-res://cards/BaseCard.gd
-res://Player.gd
 res://Main.gd
-res://missions/NewMission.gd
