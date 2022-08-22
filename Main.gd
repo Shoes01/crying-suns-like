@@ -51,7 +51,7 @@ func update_log(battle_succes: bool, mission_count: int, encounter_count: int, c
 	if battle_succes:
 		new_text = "> M" + str(mission_count) + "|Enc " + str(encounter_count + 1) + "/Card " + str(card_count + 1) + ": Success!"
 	else:
-		new_text = "> Enc " + str(encounter_count + 1) + "/Card " + str(card_count + 1) + ": Failure. 1 soldier lost."
+		new_text = "> M" + str(mission_count) + "|Enc " + str(encounter_count + 1) + "/Card " + str(card_count + 1) + ": Failure. 1 soldier lost."
 	
 	log_text = new_text + "\n" + log_text
 	$Panel/VBoxContainer/Control/Log.set_text(log_text)
@@ -61,6 +61,7 @@ func check_player() -> void:
 	if player.soldier_count <= 0:
 		print("YOU HAVE LOST.")
 		print_soldier_count()
+		get_tree().change_scene("res://GameOver.tscn")
 
 
 func check_progress() -> void:
@@ -72,6 +73,7 @@ func check_progress() -> void:
 		$Panel/VBoxContainer/FightButton.set_disabled(true)
 		print("YOU HAVE WON.")
 		print_soldier_count()
+		get_tree().change_scene("res://GameOver.tscn")
 		encounter_counter = 0
 
 

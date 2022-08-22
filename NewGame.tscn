@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxaah4p7hmp65"]
+
+[ext_resource type="Script" path="res://NewGame.gd" id="1_4xrta"]
+
+[node name="NewGame" type="Node2D"]
+script = ExtResource("1_4xrta")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 281.0
+offset_bottom = 117.0
+
+[node name="Button" type="Button" parent="Panel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+text = "NEW GAME"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

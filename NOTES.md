@@ -10,14 +10,11 @@ Have a `Fight` button.
 Continue fighting until the mission is won or lost.
 
 ## TODO
-A log to show what is happening.
-    Soldiers lost
-    Outcome of battles
-    Current mission / encounter / card
-A win screen.
-    Display when all the encounters are done
-A lose screen.
-    Display when soldier_count == 0
+A start screen.
+    A button with begin.
+An end screen.
+    A button with begin, again
+    Text informing the player they won, or lost.
 
 # MVP-2 BASIC COMBAT ENGINE -- Cards have different power levels. 
 <!-- Skip this, because combat will not look like this at all. -->
@@ -28,7 +25,6 @@ The loser loses 1dX - 1dP number of soldiers
 Roll until a winner is determined.
     Player continues to click roll here
 Create a few more cards
-
 
 Stretch goal: winning an encounter allows the player to gain 1dM soldiers back, where M is the number of casualties sustained.
 
@@ -231,6 +227,8 @@ Drills: There should be two version: increase proficiency and maintain proficien
 
 Currencies: Primary currencvy is MANPOWER, second is INFLUENCE.
     You are limited by the number of staff you, and the access you are granted.
+    MANPOWER is spent on tasks. It is the basic currency.
+    INFLUENCE is spent on _other stuff_. It is essentially looted from spaceships. There are icons for influence, but it will be used as "general" and "quest-specific".
 
 
 # GAME LOOP
