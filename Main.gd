@@ -62,6 +62,7 @@ func check_player() -> void:
 		print("YOU HAVE LOST.")
 		print_soldier_count()
 		get_tree().change_scene("res://GameOver.tscn")
+		Global.game_state = "DEFEAT"
 
 
 func check_progress() -> void:
@@ -75,6 +76,7 @@ func check_progress() -> void:
 		print_soldier_count()
 		get_tree().change_scene("res://GameOver.tscn")
 		encounter_counter = 0
+		Global.game_state = "VICTORY"
 
 
 func print_soldier_count() -> void:

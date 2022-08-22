@@ -10,11 +10,8 @@ Have a `Fight` button.
 Continue fighting until the mission is won or lost.
 
 ## TODO
-A start screen.
-    A button with begin.
-An end screen.
-    A button with begin, again
-    Text informing the player they won, or lost.
+GameState singleton.
+    Use this on the GameOver scene to know if the game was a win or a loss
 
 # MVP-2 BASIC COMBAT ENGINE -- Cards have different power levels. 
 <!-- Skip this, because combat will not look like this at all. -->

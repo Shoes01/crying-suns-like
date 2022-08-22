@@ -1,6 +1,8 @@
-res://Main.tscn
+res://missions/BaseMission.gd
+res://GameOver.gd
 res://Main.gd
 res://NewGame.gd
-res://NewGame.tscn
-res://GameOver.gd
 res://GameOver.tscn
+res://Global.gd
+res://NewGame.tscn
+res://Main.tscn
