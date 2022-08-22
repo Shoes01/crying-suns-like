@@ -229,6 +229,9 @@ Drills: There should be two version: increase proficiency and maintain proficien
             This probably means that they will simply need to pick
             I also need to decide how icon degredation will work ...
 
+Currencies: Primary currencvy is MANPOWER, second is INFLUENCE.
+    You are limited by the number of staff you, and the access you are granted.
+
 
 # GAME LOOP
 ## GEOSCAPE

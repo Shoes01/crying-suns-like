@@ -6,8 +6,8 @@
 script = ExtResource("1")
 
 [node name="Panel" type="Panel" parent="."]
-offset_right = 300.0
-offset_bottom = 400.0
+offset_right = 743.0
+offset_bottom = 282.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -16,50 +16,64 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MissionTitle" type="Label" parent="Panel/VBoxContainer"]
-offset_right = 300.0
+offset_right = 743.0
 offset_bottom = 26.0
 text = "MISSION TITLE"
 horizontal_alignment = 1
 
 [node name="EncounterTitle" type="Label" parent="Panel/VBoxContainer"]
 offset_top = 30.0
-offset_right = 300.0
+offset_right = 743.0
 offset_bottom = 56.0
 text = "ENCOUNTER TITLE"
 
 [node name="BattleCount" type="Label" parent="Panel/VBoxContainer"]
 offset_top = 60.0
-offset_right = 300.0
+offset_right = 743.0
 offset_bottom = 86.0
 text = "Battle Count: 0"
 
 [node name="Card" type="VBoxContainer" parent="Panel/VBoxContainer"]
 offset_top = 90.0
-offset_right = 300.0
+offset_right = 743.0
 offset_bottom = 146.0
 grow_horizontal = 2
 
 [node name="CardTitle" type="Label" parent="Panel/VBoxContainer/Card"]
-offset_right = 300.0
+offset_right = 743.0
 offset_bottom = 26.0
 text = "CARD TITLE"
 
 [node name="CardDescription" type="Label" parent="Panel/VBoxContainer/Card"]
 offset_top = 30.0
-offset_right = 300.0
+offset_right = 743.0
 offset_bottom = 56.0
 text = "Card Description."
 
 [node name="FightButton" type="Button" parent="Panel/VBoxContainer"]
 offset_top = 150.0
-offset_right = 300.0
+offset_right = 743.0
 offset_bottom = 181.0
 text = "FIGHT!"
 
-[node name="SoldierCount" type="Label" parent="Panel/VBoxContainer"]
+[node name="Control" type="Control" parent="Panel/VBoxContainer"]
 offset_top = 185.0
-offset_right = 300.0
-offset_bottom = 400.0
+offset_right = 743.0
+offset_bottom = 231.0
+size_flags_vertical = 3
+
+[node name="Log" type="Label" parent="Panel/VBoxContainer/Control"]
+clip_contents = true
+offset_top = 4.0
+offset_right = 743.0
+offset_bottom = 30.0
+text = "> Mission begins."
+clip_text = true
+
+[node name="SoldierCount" type="Label" parent="Panel/VBoxContainer"]
+offset_top = 235.0
+offset_right = 743.0
+offset_bottom = 282.0
 size_flags_vertical = 7
 text = "SOLDIER COUNT: 0"
 horizontal_alignment = 2

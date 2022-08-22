@@ -41,7 +41,20 @@ func _on_FightButton_pressed() -> void:
 	check_player()
 	check_progress()
 	
+	update_log(success)
 	update_UI()
+
+
+func update_log(value: bool) -> void:
+	var log_text: String = $Panel/VBoxContainer/Control/Log.get_text()
+	var new_text : String
+	if value:
+		new_text = "> Battle successful!"
+	else:
+		new_text = "> Battle unsuccessful. 1 soldier lost."
+	
+	log_text = new_text + "\n" + log_text
+	$Panel/VBoxContainer/Control/Log.set_text(log_text)
 
 
 func check_player() -> void:
