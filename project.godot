@@ -35,6 +35,11 @@ _global_script_classes=[{
 "path": "res://encounters/FirstEncounter.gd"
 }, {
 "base": "Node",
+"class": &"Icon",
+"language": &"GDScript",
+"path": "res://icons/BaseIcon.gd"
+}, {
+"base": "Node",
 "class": &"Mission",
 "language": &"GDScript",
 "path": "res://missions/BaseMission.gd"
@@ -43,6 +48,11 @@ _global_script_classes=[{
 "class": &"NewMission",
 "language": &"GDScript",
 "path": "res://missions/NewMission.gd"
+}, {
+"base": "Icon",
+"class": &"OpenFireIcon",
+"language": &"GDScript",
+"path": "res://icons/OpenFireIcon.gd"
 }, {
 "base": "Node",
 "class": &"Player",
@@ -53,6 +63,11 @@ _global_script_classes=[{
 "class": &"SecondEncounter",
 "language": &"GDScript",
 "path": "res://encounters/SecondEncounter.gd"
+}, {
+"base": "Icon",
+"class": &"TakeCoverIcon",
+"language": &"GDScript",
+"path": "res://icons/TakeCoverIcon.gd"
 }]
 _global_script_class_icons={
 "AttackCard": "",
@@ -60,10 +75,13 @@ _global_script_class_icons={
 "DefenseCard": "",
 "Encounter": "",
 "FirstEncounter": "",
+"Icon": "",
 "Mission": "",
 "NewMission": "",
+"OpenFireIcon": "",
 "Player": "",
-"SecondEncounter": ""
+"SecondEncounter": "",
+"TakeCoverIcon": ""
 }
 
 [application]

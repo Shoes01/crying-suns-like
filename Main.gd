@@ -10,7 +10,20 @@ var player = preload("res://Player.gd").new()
 
 func _ready() -> void:
 	update_UI()
-
+	# Update unit icons (just player for now)
+	var unit_icons: Array = get_tree().get_nodes_in_group("UnitIcons")
+	## Turn off all icons.
+	for icon in unit_icons:
+		icon.set_visible(false)
+	## Turn on and set unit icons.
+	var this_units_icons: Array = player.icons
+	var iterator = 0
+	for icon in this_units_icons:
+		unit_icons[iterator].set_visible(true)
+		unit_icons[iterator].set_modulate(icon.color)
+		unit_icons[iterator].set_texture(load(icon.sprite_path))
+		iterator += 1
+	
 
 func update_UI() -> void:
 	$Panel/VBoxContainer/MissionTitle.set_text(mission.title)
@@ -21,7 +34,20 @@ func update_UI() -> void:
 	$Panel/VBoxContainer/BattleCount.set_text(battle_count_text)
 	var soldier_count_text = "SOLDIER COUNT: " + str(player.soldier_count)
 	$Panel/VBoxContainer/SoldierCount.set_text(soldier_count_text)
-
+	
+	# Update card icons.
+	var icons: Array = get_tree().get_nodes_in_group("Icons")
+	## Turn off all the icons.
+	for icon in icons:
+		icon.set_visible(false)
+	## Turn on and set the card icons.
+	var card_icons: Array = mission.encounters[encounter_counter].cards[card_counter].icons
+	var iterator = 0
+	for card_icon in card_icons:
+		icons[iterator].set_texture(load(card_icon.sprite_path))
+		icons[iterator].set_modulate(card_icon.color)
+		icons[iterator].set_visible(true)
+		iterator += 1
 
 func _on_FightButton_pressed() -> void:
 	var success : bool
