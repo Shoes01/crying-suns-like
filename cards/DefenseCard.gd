@@ -4,4 +4,4 @@ extends Card
 func _init() -> void:
 	title = "Sweeping Fire"
 	description = "The enemy has opened a sweeping volley."
-	icons = {take_cover_icon.new(): 3}
+	icons = {Icons.take_cover: 3}

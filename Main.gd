@@ -45,7 +45,9 @@ func update_UI() -> void:
 	for icon in icons:
 		icon.set_visible(false)
 	## Turn on and set the card icons.
-	var card_icons: Dictionary = mission.encounters[encounter_counter].cards[card_counter].icons
+	var encounter = mission.encounters[encounter_counter]
+	var card = encounter.cards[card_counter]
+	var card_icons: Dictionary = card.icons
 	var iterator = 0
 	# Iterate for each icon.
 	for icon in card_icons:

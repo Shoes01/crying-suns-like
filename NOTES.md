@@ -1,4 +1,6 @@
 # MVP-2 BASIC COMBAT ENGINE -- Introduce ICONS
+[!] Icons are not all converted to dicts of dicts.
+
 Create a combat engine GDScript
     Input -> card, unit
     Process : Color the icons to communicate which ones matched, which ones did not

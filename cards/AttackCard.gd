@@ -4,4 +4,4 @@ extends Card
 func _init() -> void:
 	title = "Vulnerable position"
 	description = "The enemy is out of position - open fire!"
-	icons = {open_fire_icon.new():1}
+	icons = {Icons.open_fire: 1}
