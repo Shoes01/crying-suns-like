@@ -1,4 +1,12 @@
 # MVP-2 BASIC COMBAT ENGINE -- Introduce ICONS
+Create a combat engine GDScript
+    Input -> card, unit
+    Process : Color the icons to communicate which ones matched, which ones did not
+        Note : An icon cannot be used more than once. 
+            \\I can count up how many of each icon there is in each group.
+    Process : extract icons of both, compare, determine how much damage is done to unit
+    ? : Do I need to Output the results of the battle and apply them to the Unit?
+    ? : Do I need to Output the results to color the icons on the UI?
 Show Active Unit, with available icons.
 Show Card, with icons to beat.
 When a battle is fought, show which icons on the card were beat.
@@ -6,6 +14,15 @@ Calculate result
     100% - no soldiers lost
     50% - 99% - one soldier lost
     0-49% - two soldiers lost
+
+## NOTE
+ICONS, CARDS, ENCOUNTERS and MISSIONS should all be stored in singleton dictionaries. 
+ICONS[card][property] will be how I access the information.
+
+_Eventually_, Missions will be more complicated and will be turned into proper objects. \\make them into scenes
+    One mission (Small UFO) can have a specific "room" be one of multipler encounters.
+After that, Encounters could be generalized a bit too. 
+    One encounter could have a card changed here or there based on player actions/preparations.
 
 # MVP-3 BASIC CAMPAIGN PROGRESS -- Choose one mission, or another.
 Give the player choice in which mission to take.
