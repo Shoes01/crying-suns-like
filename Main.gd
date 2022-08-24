@@ -7,6 +7,7 @@ var battle_counter := 0
 
 var mission = preload("res://missions/NewMission.gd").new()
 var player = preload("res://Player.gd").new()
+var combat_engine = preload("res://CombatEngine.gd").new()
 
 func _ready() -> void:
 	update_UI()
@@ -16,14 +17,17 @@ func _ready() -> void:
 	for icon in unit_icons:
 		icon.set_visible(false)
 	## Turn on and set unit icons.
-	var this_units_icons: Array = player.icons
+	var this_units_icons: Dictionary = player.icons
 	var iterator = 0
+	# Iterate over each icon.
 	for icon in this_units_icons:
-		unit_icons[iterator].set_visible(true)
-		unit_icons[iterator].set_modulate(icon.color)
-		unit_icons[iterator].set_texture(load(icon.sprite_path))
-		iterator += 1
-	
+		# Iterate for the quantity of icons.
+		for quantity in this_units_icons[icon]:
+			unit_icons[iterator].set_visible(true)
+			unit_icons[iterator].set_modulate(icon.color)
+			unit_icons[iterator].set_texture(load(icon.sprite_path))
+			iterator += 1
+
 
 func update_UI() -> void:
 	$Panel/VBoxContainer/MissionTitle.set_text(mission.title)
@@ -41,23 +45,24 @@ func update_UI() -> void:
 	for icon in icons:
 		icon.set_visible(false)
 	## Turn on and set the card icons.
-	var card_icons: Array = mission.encounters[encounter_counter].cards[card_counter].icons
+	var card_icons: Dictionary = mission.encounters[encounter_counter].cards[card_counter].icons
 	var iterator = 0
-	for card_icon in card_icons:
-		icons[iterator].set_texture(load(card_icon.sprite_path))
-		icons[iterator].set_modulate(card_icon.color)
-		icons[iterator].set_visible(true)
-		iterator += 1
+	# Iterate for each icon.
+	for icon in card_icons:
+		# Iterate for the quantity of icons.
+		for quantity in card_icons[icon]:
+			icons[iterator].set_visible(true)
+			icons[iterator].set_modulate(icon.color)
+			icons[iterator].set_texture(load(icon.sprite_path))
+			iterator += 1
 
 func _on_FightButton_pressed() -> void:
-	var success : bool
+	var success : bool = combat_engine.card_vs_unit(mission.encounters[encounter_counter].cards[card_counter], player)
 	
-	if randf() > 0.5:
+	if success:
 		print("SUCCESS!")
-		success = true
 	else:
 		print("Failure.")
-		success = false
 		player.soldier_count -= 1
 		print_soldier_count()
 	

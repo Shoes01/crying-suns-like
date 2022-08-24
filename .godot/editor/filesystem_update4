@@ -1,7 +1,9 @@
+res://GameOver.tscn
+res://CombatEngine.gd
+res://cards/BaseCard.gd
+res://cards/AttackCard.gd
+res://cards/DefenseCard.gd
+res://Player.gd
+res://Main.gd
 res://Main.tscn
 res://NewGame.tscn
-res://GameOver.tscn
-res://Main.gd
-res://cards/DefenseCard.gd
-res://cards/AttackCard.gd
-res://Player.gd

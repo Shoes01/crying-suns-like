@@ -8,7 +8,7 @@ var soldier_count = 5
 var open_fire_icon = preload("res://icons/OpenFireIcon.gd")
 var take_cover_icon = preload("res://icons/TakeCoverIcon.gd")
 
-var icons = [open_fire_icon.new(), open_fire_icon.new(), take_cover_icon.new()]
+var icons = {open_fire_icon.new(): 2, take_cover_icon.new(): 1}
 
 func _ready() -> void:
 	print("Player ready.")
