@@ -2,6 +2,7 @@ class_name Player
 extends Node
 
 var soldier_count = 5
+var loot = 0
 
 # Icons.
 # I am putting this here until I create actual Units.

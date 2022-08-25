@@ -7,3 +7,4 @@ func _init() -> void:
 	title = "Open Fire!"
 	description = "Open fire on the enemy position."
 	color = Color("red")
+	rewards = {"loot": 50}

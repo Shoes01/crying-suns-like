@@ -36,7 +36,7 @@ func update_UI() -> void:
 	$Panel/VBoxContainer/Card/CardDescription.set_text(mission.encounters[encounter_counter].cards[card_counter].description)
 	var battle_count_text = "Battle Count: " + str(battle_counter)
 	$Panel/VBoxContainer/BattleCount.set_text(battle_count_text)
-	var soldier_count_text = "SOLDIER COUNT: " + str(player.soldier_count)
+	var soldier_count_text = "SOLDIER COUNT: " + str(player.soldier_count) + " | LOOT " + str(player.loot)
 	$Panel/VBoxContainer/SoldierCount.set_text(soldier_count_text)
 	
 	# Update card icons.
@@ -60,13 +60,6 @@ func update_UI() -> void:
 
 func _on_FightButton_pressed() -> void:
 	var success : bool = combat_engine.card_vs_unit(mission.encounters[encounter_counter].cards[card_counter], player)
-	
-	if success:
-		print("SUCCESS!")
-	else:
-		print("Failure.")
-		player.soldier_count -= 1
-		print_soldier_count()
 	
 	card_counter += 1
 	battle_counter += 1

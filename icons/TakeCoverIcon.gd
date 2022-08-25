@@ -7,3 +7,4 @@ func _init() -> void:
 	title = "Take Cover!"
 	description = "Take cover from enemy fire."
 	color = Color("blue")
+	penalties = {"soldier_damage": 1}
