@@ -1,13 +1,1 @@
-res://GameOver.tscn
-res://CombatEngine.gd
-res://cards/BaseCard.gd
-res://cards/AttackCard.gd
-res://cards/DefenseCard.gd
-res://Player.gd
-res://Main.gd
 res://Main.tscn
-res://NewGame.tscn
-res://Icons.gd
-res://icons/OpenFireIcon.gd
-res://icons/BaseIcon.gd
-res://icons/TakeCoverIcon.gd

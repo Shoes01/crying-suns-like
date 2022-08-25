@@ -1,8 +1,10 @@
+ItemList
+Label
+VBoxContainer
+Panel
+Button
+ScrollContainer
 TextureRect
 HBoxContainer
-Button
-Label
-Panel
-ScrollContainer
 Control
 Container

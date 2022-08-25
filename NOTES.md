@@ -1,21 +1,17 @@
 # MVP-2 BASIC COMBAT ENGINE -- Introduce ICONS
-[!] Icons are not all converted to dicts of dicts.
-
-Create a combat engine GDScript
-    Input -> card, unit
-    Process : Color the icons to communicate which ones matched, which ones did not
-        Note : An icon cannot be used more than once. 
-            \\I can count up how many of each icon there is in each group.
-    Process : extract icons of both, compare, determine how much damage is done to unit
-    ? : Do I need to Output the results of the battle and apply them to the Unit?
-    ? : Do I need to Output the results to color the icons on the UI?
-Show Active Unit, with available icons.
-Show Card, with icons to beat.
-When a battle is fought, show which icons on the card were beat.
-Calculate result
-    100% - no soldiers lost
-    50% - 99% - one soldier lost
-    0-49% - two soldiers lost
+UI needs to communicate better to the player what's going on.
+    A "PlayerPanel"
+        List of all units, displaying their icons and soldiers
+        Highlight active unit
+        Show other player data, like loot
+    The whole thing should have a "MissionPanel"
+        Has a log of events
+    Inside that is the "EncoutnerPanel"
+        Has a button to "draw card"
+    Inside that is the "CardPanel"
+        CardPanel kind of looks like a card, showing all the data.
+    
+`battle_result` could be split into a rewards and a punishment function. 
 
 ## NOTE
 ICONS, CARDS, ENCOUNTERS and MISSIONS should all be stored in singleton dictionaries. 
@@ -35,6 +31,8 @@ Have a few more different cards and encounters to make new missions
 Give player choice in which encounters to take.
 
 # FUTURE MVPS
+Cards granting rewards/penalties for 100%ing them.
+    Cards should also decide "what card comes next" - this is how things will not go according to plan
 Soldier HP : Full HP, Wounded, Dead
 Finite State Machine
 Procgen within Missions
