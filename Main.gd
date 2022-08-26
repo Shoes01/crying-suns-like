@@ -125,6 +125,7 @@ func _on_FightButton_pressed() -> void:
 
 
 func update_log(battle_succes: bool, mission_count: int, encounter_count: int, card_count: int) -> void:
+	var log = $MissionPanel/VBoxContainer/LogScroll/LogText # NEW
 	var log_text: String = $Panel/VBoxContainer/Control/Log.get_text()
 	var new_text : String
 	if battle_succes:
@@ -134,6 +135,7 @@ func update_log(battle_succes: bool, mission_count: int, encounter_count: int, c
 	
 	log_text = new_text + "\n" + log_text
 	$Panel/VBoxContainer/Control/Log.set_text(log_text)
+	log.set_text(log_text) # NEW
 
 
 func check_player() -> void:
