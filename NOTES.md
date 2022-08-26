@@ -1,10 +1,5 @@
 # MVP-2 BASIC COMBAT ENGINE -- Introduce ICONS
 # MVP-2.1 -- Polish
-Improve Player panel
-    Show loot
-Improve Unit panel
-    Icons need colors
-    The data needs to be generally improved. The ItemList node isn't great ...
 Decouple code
     Mission, Encounter, Card and (maybe) Unit should be their own scenes
         All relevant code should be moved into scripts attached to these scenes

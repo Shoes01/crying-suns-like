@@ -88,27 +88,46 @@ func update_UI() -> void:
 				print("TOO MANY ICONS!!!")
 				var row = card_icon_area.get_node("Row2")
 				row.add_child(texture_rect)
-	
-	
 	# NEW: Populate the soldier list with the unit's soldiers.
-	## CLear the list.
-	soldier_list.clear()
-	## Populate the list with soldiers.
-	for n in player.soldier_count:
-		# ISSUE : I have to add the thing to the list..
-		var tex = Texture2D.new()
-		var icon_sprite = load("res://icon.png")
-		#print(icon_sprite)
-		#tex.set_texture(load("res://icon.png"))
-		#tex.set_modulate(Color("green"))
-		var soldier_name = "Soldier #" + str(n+1)
-		soldier_list.add_item(soldier_name, icon_sprite)
+	## Clear the list.
+	var unit_area = $PlayerPanel/VBoxContainer/UnitPanel/VBoxContainer/VBoxContainer
+	for parent in unit_area.get_children():
+		for child in parent.get_children():
+			child.queue_free()
 	
-	icon_list.clear()
+	col = 1
+	var current_unit = player
+	
 	for icon in player.icons:
-		for n in player.icons[icon]:
-			var new_icon = load(icon.sprite_path)
-			icon_list.add_icon_item(new_icon)
+		for quantity in player.icons[icon]:
+			var texture_rect := TextureRect.new()
+			texture_rect.set_texture(load(icon.sprite_path))
+			texture_rect.set_modulate(icon.color)
+			if col <= 5:
+				var row = unit_area.get_node("IconRow1")
+				row.add_child(texture_rect)
+			elif col <=10:
+				var row = unit_area.get_node("IconRow2")
+				row.add_child(texture_rect)
+			else:
+				print("TOO MANY ICONS!!!")
+				var row = unit_area.get_node("IconRow2")
+				row.add_child(texture_rect)
+	# NEW: Populate soldiers.
+	for n in current_unit.soldier_count:
+		var texture_rect := TextureRect.new()
+		texture_rect.set_texture(load("res://icon.png"))
+		texture_rect.set_modulate(Color("green"))
+		if col <= 5:
+			var row = unit_area.get_node("SoldierRow1")
+			row.add_child(texture_rect)
+		elif col <=10:
+			var row = unit_area.get_node("SoldierRow2")
+			row.add_child(texture_rect)
+		else:
+			print("TOO MANY SOLDIERS!!!")
+			var row = unit_area.get_node("SoldierRow2")
+			row.add_child(texture_rect)
 
 
 func _on_FightButton_pressed() -> void:

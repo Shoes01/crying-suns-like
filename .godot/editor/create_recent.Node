@@ -1,7 +1,7 @@
-TextureRect
 HBoxContainer
-ItemList
 Label
+TextureRect
+ItemList
 VBoxContainer
 Panel
 Button
