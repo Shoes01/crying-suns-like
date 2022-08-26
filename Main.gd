@@ -11,9 +11,6 @@ var combat_engine = preload("res://CombatEngine.gd").new()
 var mission = preload("res://missions/NewMission.gd").new()
 var player = preload("res://Player.gd").new()
 
-@onready var soldier_list = $PlayerPanel/VBoxContainer/UnitPanel/VBoxContainer/VBoxContainer/SoldierList
-@onready var icon_list = $PlayerPanel/VBoxContainer/UnitPanel/VBoxContainer/VBoxContainer/IconList
-
 
 func _ready() -> void:
 	update_UI("new_mission")
@@ -27,12 +24,12 @@ func update_UI(event: String) -> void:
 
 
 func update_log(event: String) -> void:
-	var log = $MissionPanel/VBoxContainer/LogScroll/LogText
-	var log_text = log.get_text()
+	var log_node = $MissionPanel/VBoxContainer/LogScroll/LogText
+	var log_text = log_node.get_text()
 	var new_text : String = ""
 	# In case of a new mission
 	if event == "new_mission":
-		log.set_text("NEW MISSION")
+		log_node.set_text("NEW MISSION")
 		return
 	# Timestamp.
 	new_text += "[" + str(battle_counter) + "]"
@@ -47,7 +44,7 @@ func update_log(event: String) -> void:
 		new_text += "Failure."
 	# Update log.
 	log_text = new_text + "\n" + log_text
-	log.set_text(log_text)
+	log_node.set_text(log_text)
 
 
 func check_player() -> void:
@@ -70,7 +67,7 @@ func check_progress() -> void:
 		Global.game_state = "VICTORY"
 
 
-func _on_draw_button_pressed():
+func _on_draw_button_pressed() -> void:
 	# Determine the outcome of the card.
 	var success : bool = combat_engine.card_vs_unit(mission.encounters[encounter_counter].cards[card_counter], player)
 	# Crudge method of tracking progress.

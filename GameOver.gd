@@ -10,11 +10,6 @@ func _ready():
 		label.set_text("You are loser.")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_button_pressed():
 	get_tree().change_scene("res://NewGame.tscn")
 	Global.game_state = "NEW_GAME"

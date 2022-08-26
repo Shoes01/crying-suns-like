@@ -10,7 +10,9 @@ Improve readability
     Add comments where necessary
     Append function names with _ where necessary
     Split `battle_result` into two functions
-   
+
+## Bug
+Weird thing where unit data title moves? after a new encounter?
 
 ## NOTE
 ICONS, CARDS, ENCOUNTERS and MISSIONS should all be stored in singleton dictionaries. 
@@ -170,7 +172,7 @@ A Department will do Tasks, conduct Research and Recruit to progress.
 
 
 # MISC NOTES
-\\many of thee departments could be a single entity performing these tasks.
+\\many of these departments could be a single entity performing these tasks.
 SIGINT is first contact mission gen
 SATCOM generates more info about the mission
 <!-- What do these departments do while they are not doing mission-specific things? Drills/Study? -->

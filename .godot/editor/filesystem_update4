@@ -2,3 +2,4 @@ res://Main.tscn
 res://Main.gd
 res://NewGame.tscn
 res://GameOver.tscn
+res://GameOver.gd
