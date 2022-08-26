@@ -1,10 +1,10 @@
+TextureRect
+HBoxContainer
 ItemList
 Label
 VBoxContainer
 Panel
 Button
 ScrollContainer
-TextureRect
-HBoxContainer
 Control
 Container

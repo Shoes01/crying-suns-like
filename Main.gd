@@ -9,6 +9,9 @@ var mission = preload("res://missions/NewMission.gd").new()
 var player = preload("res://Player.gd").new()
 var combat_engine = preload("res://CombatEngine.gd").new()
 
+@onready var soldier_list = $PlayerPanel/VBoxContainer/UnitPanel/VBoxContainer/VBoxContainer/SoldierList
+@onready var icon_list = $PlayerPanel/VBoxContainer/UnitPanel/VBoxContainer/VBoxContainer/IconList
+
 func _ready() -> void:
 	update_UI()
 	# Update unit icons (just player for now)
@@ -39,6 +42,7 @@ func update_UI() -> void:
 	var soldier_count_text = "SOLDIER COUNT: " + str(player.soldier_count) + " | LOOT " + str(player.loot)
 	$Panel/VBoxContainer/SoldierCount.set_text(soldier_count_text)
 	
+	############# OLD ##########################
 	# Update card icons.
 	var icons: Array = get_tree().get_nodes_in_group("Icons")
 	## Turn off all the icons.
@@ -57,6 +61,55 @@ func update_UI() -> void:
 			icons[iterator].set_modulate(icon.color)
 			icons[iterator].set_texture(load(icon.sprite_path))
 			iterator += 1
+	
+	##########################################################
+	# NEW: Populate card icons.
+	## Clear the list.
+	var card_icon_area = $MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer/CardPanel/VBoxContainer
+	for parent in card_icon_area.get_children():
+		for child in parent.get_children():
+			child.queue_free()
+	
+	var col := 1
+	var current_card = mission.encounters[encounter_counter].cards[card_counter]
+	
+	for icon in current_card.icons:
+		for quantity in current_card.icons[icon]:
+			var texture_rect := TextureRect.new()
+			texture_rect.set_texture(load(icon.sprite_path))
+			texture_rect.set_modulate(icon.color)
+			if col <= 5:
+				var row = card_icon_area.get_node("Row1")
+				row.add_child(texture_rect)
+			elif col <=10:
+				var row = card_icon_area.get_node("Row2")
+				row.add_child(texture_rect)
+			else:
+				print("TOO MANY ICONS!!!")
+				var row = card_icon_area.get_node("Row2")
+				row.add_child(texture_rect)
+	
+	
+	# NEW: Populate the soldier list with the unit's soldiers.
+	## CLear the list.
+	soldier_list.clear()
+	## Populate the list with soldiers.
+	for n in player.soldier_count:
+		# ISSUE : I have to add the thing to the list..
+		var tex = Texture2D.new()
+		var icon_sprite = load("res://icon.png")
+		#print(icon_sprite)
+		#tex.set_texture(load("res://icon.png"))
+		#tex.set_modulate(Color("green"))
+		var soldier_name = "Soldier #" + str(n+1)
+		soldier_list.add_item(soldier_name, icon_sprite)
+	
+	icon_list.clear()
+	for icon in player.icons:
+		for n in player.icons[icon]:
+			var new_icon = load(icon.sprite_path)
+			icon_list.add_icon_item(new_icon)
+
 
 func _on_FightButton_pressed() -> void:
 	var success : bool = combat_engine.card_vs_unit(mission.encounters[encounter_counter].cards[card_counter], player)
@@ -107,3 +160,7 @@ func check_progress() -> void:
 
 func print_soldier_count() -> void:
 	print("Soldiers remaining: " + str(player.soldier_count))
+
+
+func _on_draw_button_pressed():
+	_on_FightButton_pressed()
