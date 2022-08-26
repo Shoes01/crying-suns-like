@@ -5,11 +5,10 @@ Decouple code
         All relevant code should be moved into scripts attached to these scenes
 Improve readability
     Improve folder layout for the project
-    Remove old code from previous UI
     Ensure all vars are :='d and all functions are ->'d
     Add comments where necessary
     Append function names with _ where necessary
-    Split `battle_result` into two functions
+
 
 ## Bug
 Weird thing where unit data title moves? after a new encounter?
