@@ -51,16 +51,19 @@ func update_log(event: String) -> void:
 
 
 func check_player() -> void:
+	# Check if the player has any soldiers remaining.
+	# NOTE: This will be replaced once units are a thing.
 	if player.soldier_count <= 0:
 		get_tree().change_scene("res://GameOver.tscn")
 		Global.game_state = "DEFEAT"
 
 
 func check_progress() -> void:
+	# Check if the encounter is out of cards.
 	if card_counter >= mission.encounters[encounter_counter].cards.size():
 		card_counter = 0
 		encounter_counter += 1
-	
+	# Check if the mission is out of encounters.
 	if encounter_counter >= mission.encounters.size():
 		get_tree().change_scene("res://GameOver.tscn")
 		encounter_counter = 0
@@ -68,20 +71,20 @@ func check_progress() -> void:
 
 
 func _on_draw_button_pressed():
+	# Determine the outcome of the card.
 	var success : bool = combat_engine.card_vs_unit(mission.encounters[encounter_counter].cards[card_counter], player)
-	
+	# Crudge method of tracking progress.
 	card_counter += 1
 	battle_counter += 1
-	
+	# Update things.
 	check_player()
 	check_progress()
-	
+	# Communicate the event.
 	var event := ""
 	if success:
 		event = "win"
 	else:
 		event = "loss"
-	
 	update_UI(event)
 
 
@@ -136,16 +139,18 @@ func update_unit_panel() -> void:
 
 
 func update_card_panel() -> void:
+	var current_card = mission.encounters[encounter_counter].cards[card_counter]
+	# Update name.
+	var card_title = $MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer/CardPanel/VBoxContainer/CardTitle
+	card_title.set_text(current_card.title)
 	# Populate card icons.
-	## Clear the list.
 	var card_icon_area = $MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer/CardPanel/VBoxContainer
+	## Clear the list.
 	for parent in card_icon_area.get_children():
 		for child in parent.get_children():
 			child.queue_free()
-	
+	## Prepare new list.
 	var col := 1
-	var current_card = mission.encounters[encounter_counter].cards[card_counter]
-	
 	for icon in current_card.icons:
 		for quantity in current_card.icons[icon]:
 			var texture_rect := TextureRect.new()

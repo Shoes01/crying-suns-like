@@ -9,8 +9,8 @@ script = ExtResource("1")
 [node name="PlayerPanel" type="Panel" parent="."]
 offset_left = 46.0
 offset_top = 22.0
-offset_right = 360.0
-offset_bottom = 530.0
+offset_right = 396.0
+offset_bottom = 522.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayerPanel"]
 anchor_right = 1.0
@@ -20,21 +20,21 @@ grow_vertical = 2
 metadata/_edit_layout_mode = 1
 
 [node name="Title" type="Label" parent="PlayerPanel/VBoxContainer"]
-offset_right = 314.0
+offset_right = 350.0
 offset_bottom = 26.0
 text = "PLAYER DATA"
 horizontal_alignment = 1
 
 [node name="Data" type="Label" parent="PlayerPanel/VBoxContainer"]
 offset_top = 30.0
-offset_right = 314.0
+offset_right = 350.0
 offset_bottom = 82.0
 text = "Generic player data.
 Like loot."
 
 [node name="UnitPanel" type="Panel" parent="PlayerPanel/VBoxContainer"]
 offset_top = 86.0
-offset_right = 314.0
+offset_right = 350.0
 offset_bottom = 86.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayerPanel/VBoxContainer/UnitPanel"]
@@ -42,60 +42,60 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Title" type="Label" parent="PlayerPanel/VBoxContainer/UnitPanel/VBoxContainer"]
-offset_right = 314.0
+offset_right = 350.0
 offset_bottom = 26.0
 text = "UNIT 1 DATA"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayerPanel/VBoxContainer/UnitPanel/VBoxContainer"]
 offset_top = 30.0
-offset_right = 314.0
+offset_right = 350.0
 offset_bottom = 102.0
 size_flags_vertical = 3
 
 [node name="SoldierTitle" type="Label" parent="PlayerPanel/VBoxContainer/UnitPanel/VBoxContainer/VBoxContainer"]
-offset_right = 314.0
+offset_right = 350.0
 offset_bottom = 26.0
 text = "Soldiers"
 
 [node name="SoldierRow1" type="HBoxContainer" parent="PlayerPanel/VBoxContainer/UnitPanel/VBoxContainer/VBoxContainer"]
 offset_top = 30.0
-offset_right = 314.0
+offset_right = 350.0
 offset_bottom = 30.0
 
 [node name="SoldierRow2" type="HBoxContainer" parent="PlayerPanel/VBoxContainer/UnitPanel/VBoxContainer/VBoxContainer"]
 offset_top = 34.0
-offset_right = 314.0
+offset_right = 350.0
 offset_bottom = 34.0
 
 [node name="IconTitle" type="Label" parent="PlayerPanel/VBoxContainer/UnitPanel/VBoxContainer/VBoxContainer"]
 offset_top = 38.0
-offset_right = 314.0
+offset_right = 350.0
 offset_bottom = 64.0
 text = "Icons"
 
 [node name="IconRow1" type="HBoxContainer" parent="PlayerPanel/VBoxContainer/UnitPanel/VBoxContainer/VBoxContainer"]
 offset_top = 68.0
-offset_right = 314.0
+offset_right = 350.0
 offset_bottom = 68.0
 
 [node name="IconRow2" type="HBoxContainer" parent="PlayerPanel/VBoxContainer/UnitPanel/VBoxContainer/VBoxContainer"]
 offset_top = 72.0
-offset_right = 314.0
+offset_right = 350.0
 offset_bottom = 72.0
 
 [node name="MissionPanel" type="Panel" parent="."]
 offset_left = 543.0
 offset_top = 36.0
-offset_right = 896.0
-offset_bottom = 505.0
+offset_right = 893.0
+offset_bottom = 536.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MissionPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Title" type="Label" parent="MissionPanel/VBoxContainer"]
-offset_right = 353.0
+offset_right = 350.0
 offset_bottom = 26.0
 text = "MISSION"
 horizontal_alignment = 1
@@ -103,7 +103,7 @@ horizontal_alignment = 1
 [node name="LogScroll" type="ScrollContainer" parent="MissionPanel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 offset_top = 30.0
-offset_right = 353.0
+offset_right = 350.0
 offset_bottom = 130.0
 
 [node name="LogText" type="Label" parent="MissionPanel/VBoxContainer/LogScroll"]
@@ -116,8 +116,8 @@ text = "[ LOG ]
 
 [node name="EncounterPanel" type="Panel" parent="MissionPanel/VBoxContainer"]
 offset_top = 134.0
-offset_right = 353.0
-offset_bottom = 469.0
+offset_right = 350.0
+offset_bottom = 500.0
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MissionPanel/VBoxContainer/EncounterPanel"]
@@ -125,22 +125,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="EncounterTitle" type="Label" parent="MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer"]
-offset_right = 353.0
+offset_right = 350.0
 offset_bottom = 26.0
 text = "ENCOUNTER"
 horizontal_alignment = 1
 
 [node name="DrawButton" type="Button" parent="MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer"]
 offset_top = 30.0
-offset_right = 353.0
+offset_right = 350.0
 offset_bottom = 102.0
 text = "Draw New Encounter"
 icon = ExtResource("2_dy1nb")
 
 [node name="CardPanel" type="Panel" parent="MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer"]
 offset_top = 106.0
-offset_right = 353.0
-offset_bottom = 335.0
+offset_right = 350.0
+offset_bottom = 366.0
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer/CardPanel"]
@@ -148,18 +148,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="CardTitle" type="Label" parent="MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer/CardPanel/VBoxContainer"]
-offset_right = 353.0
+offset_right = 350.0
 offset_bottom = 26.0
 text = "CARD TITLE"
 
 [node name="Row1" type="HBoxContainer" parent="MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer/CardPanel/VBoxContainer"]
 offset_top = 30.0
-offset_right = 353.0
+offset_right = 350.0
 offset_bottom = 30.0
 
 [node name="Row2" type="HBoxContainer" parent="MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer/CardPanel/VBoxContainer"]
 offset_top = 34.0
-offset_right = 353.0
+offset_right = 350.0
 offset_bottom = 34.0
 
 [connection signal="pressed" from="MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer/DrawButton" to="." method="_on_draw_button_pressed"]
