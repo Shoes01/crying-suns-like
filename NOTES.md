@@ -1,17 +1,21 @@
 # MVP-2 BASIC COMBAT ENGINE -- Introduce ICONS
-UI needs to communicate better to the player what's going on.
-    A "PlayerPanel"
-        List of all units, displaying their icons and soldiers
-        Highlight active unit
-        Show other player data, like loot
-    The whole thing should have a "MissionPanel"
-        Has a log of events
-    Inside that is the "EncoutnerPanel"
-        Has a button to "draw card"
-    Inside that is the "CardPanel"
-        CardPanel kind of looks like a card, showing all the data.
-    
-`battle_result` could be split into a rewards and a punishment function. 
+# MVP-2.1 -- Polish
+Improve Player panel
+    Show loot
+Improve Unit panel
+    Icons need colors
+    The data needs to be generally improved. The ItemList node isn't great ...
+Decouple code
+    Mission, Encounter, Card and (maybe) Unit should be their own scenes
+        All relevant code should be moved into scripts attached to these scenes
+Improve readability
+    Improve folder layout for the project
+    Remove old code from previous UI
+    Ensure all vars are :='d and all functions are ->'d
+    Add comments where necessary
+    Append function names with _ where necessary
+    Split `battle_result` into two functions
+   
 
 ## NOTE
 ICONS, CARDS, ENCOUNTERS and MISSIONS should all be stored in singleton dictionaries. 

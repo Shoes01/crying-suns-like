@@ -125,17 +125,23 @@ func _on_FightButton_pressed() -> void:
 
 
 func update_log(battle_succes: bool, mission_count: int, encounter_count: int, card_count: int) -> void:
-	var log = $MissionPanel/VBoxContainer/LogScroll/LogText # NEW
-	var log_text: String = $Panel/VBoxContainer/Control/Log.get_text()
-	var new_text : String
+	var log = $MissionPanel/VBoxContainer/LogScroll/LogText
+	var log_text = log.get_text()
+	var new_text : String = ""
+	# Timestamp.
+	new_text += "[" + str(battle_counter) + "]"
+	# Encounter.
+	new_text += "[Enc_" + str(encounter_count) + "]"
+	# Card.
+	new_text += "[Card_" + str(card_count) + "] "
+	# Success message.
 	if battle_succes:
-		new_text = "> M" + str(mission_count) + "|Enc " + str(encounter_count + 1) + "/Card " + str(card_count + 1) + ": Success!"
+		new_text += "Success!"
 	else:
-		new_text = "> M" + str(mission_count) + "|Enc " + str(encounter_count + 1) + "/Card " + str(card_count + 1) + ": Failure. 1 soldier lost."
-	
+		new_text += "Failure."
+	# Update log.
 	log_text = new_text + "\n" + log_text
-	$Panel/VBoxContainer/Control/Log.set_text(log_text)
-	log.set_text(log_text) # NEW
+	log.set_text(log_text)
 
 
 func check_player() -> void:
