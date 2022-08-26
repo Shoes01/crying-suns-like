@@ -122,6 +122,7 @@ func _on_FightButton_pressed() -> void:
 	
 	update_log(success, mission_counter, encounter_counter, card_counter)
 	update_UI()
+	update_player_panel()
 
 
 func update_log(battle_succes: bool, mission_count: int, encounter_count: int, card_count: int) -> void:
@@ -172,3 +173,8 @@ func print_soldier_count() -> void:
 
 func _on_draw_button_pressed():
 	_on_FightButton_pressed()
+
+
+func update_player_panel() -> void:
+	var data = $PlayerPanel/VBoxContainer/Data
+	data.set_text("Collected loot: " + str(player.loot))
