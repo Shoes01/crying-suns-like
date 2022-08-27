@@ -9,6 +9,8 @@ Improve readability
     Add comments where necessary
     Append function names with _ where necessary
 
+# MVP-2-BOARD
+TileMap is probably the way to do this.
 
 ## Bug
 Weird thing where unit data title moves? after a new encounter?
@@ -35,6 +37,8 @@ Cards granting rewards/penalties for 100%ing them.
     Cards should also decide "what card comes next" - this is how things will not go according to plan
 Soldier HP : Full HP, Wounded, Dead
 Finite State Machine
+Encounters
+    Allow the player to choose which "strategy" they will employ
 Procgen within Missions
     A Mission may be pre-set to have 4 encounters: MainRoom, NextRoom, OtherRoom and LastRoom,
     but the Cards within the Encounter can be different. 
@@ -53,11 +57,6 @@ Preparation
         A Recon skill to know what cards are prsent in a specic encounter
         A Sabotage skill to reduce an enemy card
         A Infiltrate skill to ... increase loot?
-Fleshed out combat engine
-    Have more components than just Soldier vs Soldier
-        CryingSuns had those icons. 
-    More options for the player:
-        Have separate teams that the player can deploy to certain encounters.
 Loot
 
 ## ICONS MIND DUMP
