@@ -1,6 +1,6 @@
+res://UI/MissionPanel.tscn
+res://UI/EncounterPanel.tscn
+res://UI/CardPanel.tscn
+res://UI/PlayerPanel.tscn
+res://UI/UnitPanel.tscn
 res://Main.tscn
-res://Main.gd
-res://NewGame.tscn
-res://GameOver.tscn
-res://GameOver.gd
-res://CombatEngine.gd

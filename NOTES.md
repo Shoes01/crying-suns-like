@@ -9,6 +9,9 @@ Improve readability
     Add comments where necessary
     Append function names with _ where necessary
 
+[ISSUE] I broke the button signals
+> idk exactly how to do this
+
 # MVP-2-BOARD
 TileMap is probably the way to do this.
 

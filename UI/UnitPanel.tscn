@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cudtcnhf3xyab"]
+
+[node name="UnitPanel" type="Panel"]
+offset_right = 350.0
+offset_bottom = 300.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="UnitTitle" type="Label" parent="VBoxContainer"]
+offset_right = 350.0
+offset_bottom = 26.0
+text = "[ UNIT ]"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+offset_top = 30.0
+offset_right = 350.0
+offset_bottom = 300.0
+size_flags_vertical = 3
+
+[node name="SoldierTitle" type="Label" parent="VBoxContainer/VBoxContainer"]
+offset_right = 350.0
+offset_bottom = 26.0
+text = "Soldiers"
+
+[node name="SoldierRow1" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+offset_top = 30.0
+offset_right = 350.0
+offset_bottom = 30.0
+
+[node name="SoldierRow2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+offset_top = 34.0
+offset_right = 350.0
+offset_bottom = 34.0
+
+[node name="IconTitle" type="Label" parent="VBoxContainer/VBoxContainer"]
+offset_top = 38.0
+offset_right = 350.0
+offset_bottom = 64.0
+text = "Icons"
+
+[node name="IconRow1" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+offset_top = 68.0
+offset_right = 350.0
+offset_bottom = 68.0
+
+[node name="IconRow2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+offset_top = 72.0
+offset_right = 350.0
+offset_bottom = 72.0
