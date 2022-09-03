@@ -1,11 +1,35 @@
 extends Panel
 
+@onready var card_title = $MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer/CardPanel/VBoxContainer/CardTitle
+@onready var card_icon_area = $MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer/CardPanel/VBoxContainer
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func update_card(event: Dictionary) -> void:
+	if event.has("new_card"):
+		_update_card_panel(event["new_card"])
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _update_card_panel(card: Card) -> void:
+	# Update name.
+	card_title.set_text(card.title)
+	# Populate card icons.
+	## Clear the list.
+	for parent in card_icon_area.get_children():
+		for child in parent.get_children():
+			child.queue_free()
+	## Prepare new list.
+	var col := 1
+	for icon in card.icons:
+		for quantity in card.icons[icon]:
+			var texture_rect := TextureRect.new()
+			texture_rect.set_texture(load(icon.sprite_path))
+			texture_rect.set_modulate(icon.color)
+			if col <= 5:
+				var row = card_icon_area.get_node("Row1")
+				row.add_child(texture_rect)
+			elif col <=10:
+				var row = card_icon_area.get_node("Row2")
+				row.add_child(texture_rect)
+			else:
+				print("TOO MANY ICONS!!!")
+				var row = card_icon_area.get_node("Row2")
+				row.add_child(texture_rect)

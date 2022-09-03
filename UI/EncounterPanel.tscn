@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnuyn15f41410"]
+[gd_scene load_steps=4 format=3 uid="uid://dnuyn15f41410"]
 
 [ext_resource type="Texture2D" uid="uid://di15ddqt34n3c" path="res://icon.png" id="1_6kd76"]
+[ext_resource type="Script" path="res://UI/EncounterPanel.gd" id="1_x8tuo"]
 [ext_resource type="PackedScene" uid="uid://dok2n1wg3fwuq" path="res://UI/CardPanel.tscn" id="2_t5am3"]
 
 [node name="EncounterPanel" type="Panel"]
 offset_right = 350.0
 offset_bottom = 366.0
 size_flags_vertical = 3
+script = ExtResource("1_x8tuo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -26,4 +28,8 @@ text = "Draw New Encounter"
 icon = ExtResource("1_6kd76")
 
 [node name="CardPanel" parent="VBoxContainer" instance=ExtResource("2_t5am3")]
+offset_top = 106.0
+offset_bottom = 366.0
 script = null
+
+[connection signal="pressed" from="VBoxContainer/DrawButton" to="." method="_on_draw_button_pressed"]

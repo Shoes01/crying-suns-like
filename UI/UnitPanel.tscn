@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://cudtcnhf3xyab"]
+[gd_scene load_steps=2 format=3 uid="uid://cudtcnhf3xyab"]
+
+[ext_resource type="Script" path="res://UI/UnitPanel.gd" id="1_ahel8"]
 
 [node name="UnitPanel" type="Panel"]
 offset_right = 350.0
 offset_bottom = 300.0
+script = ExtResource("1_ahel8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0

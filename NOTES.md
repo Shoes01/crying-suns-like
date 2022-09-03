@@ -1,16 +1,18 @@
 # MVP-2 BASIC COMBAT ENGINE -- Introduce ICONS
 # MVP-2.1 -- Polish
-Decouple code
-    Mission, Encounter, Card and (maybe) Unit should be their own scenes
-        All relevant code should be moved into scripts attached to these scenes
 Improve readability
     Improve folder layout for the project
     Ensure all vars are :='d and all functions are ->'d
     Add comments where necessary
     Append function names with _ where necessary
 
-[ISSUE] I broke the button signals
-> idk exactly how to do this
+[BUGS]
+The draw-card signal does not appear to emit.
+Also: 
+E 0:00:10:0884   _create_instance: Error constructing a GDScriptInstance.
+  <C++ Error>    Method/function failed. Returning: nullptr
+  <C++ Source>   modules/gdscript/gdscript.cpp:183 @ _create_instance()
+
 
 # MVP-2-BOARD
 TileMap is probably the way to do this.
