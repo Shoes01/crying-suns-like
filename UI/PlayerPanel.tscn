@@ -29,4 +29,5 @@ text = "Player data"
 
 [node name="UnitPanel" parent="VBoxContainer" instance=ExtResource("1_hokwi")]
 offset_top = 60.0
-offset_bottom = 60.0
+offset_bottom = 500.0
+size_flags_vertical = 3
