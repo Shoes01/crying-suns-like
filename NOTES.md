@@ -5,13 +5,9 @@ Improve readability
     Ensure all vars are :='d and all functions are ->'d
     Add comments where necessary
     Append function names with _ where necessary
-
-[BUGS]
-The draw-card signal does not appear to emit.
-Also: 
-E 0:00:10:0884   _create_instance: Error constructing a GDScriptInstance.
-  <C++ Error>    Method/function failed. Returning: nullptr
-  <C++ Source>   modules/gdscript/gdscript.cpp:183 @ _create_instance()
+Decouple UI and Logic
+    [BUG] MissiobLogic order for drawing cards and stuff is wonky.  
+            Part of the issue is the lack of "Start" state. 
 
 
 # MVP-2-BOARD

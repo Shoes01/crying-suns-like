@@ -24,12 +24,11 @@ horizontal_alignment = 1
 offset_top = 30.0
 offset_right = 350.0
 offset_bottom = 102.0
-text = "Draw New Encounter"
+text = "FIGHT current Card"
 icon = ExtResource("1_6kd76")
 
 [node name="CardPanel" parent="VBoxContainer" instance=ExtResource("2_t5am3")]
 offset_top = 106.0
 offset_bottom = 366.0
-script = null
 
 [connection signal="pressed" from="VBoxContainer/DrawButton" to="." method="_on_draw_button_pressed"]

@@ -18,12 +18,17 @@ offset_bottom = 26.0
 text = "[ CARD TITLE ]"
 horizontal_alignment = 1
 
-[node name="Row1" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer"]
 offset_top = 30.0
 offset_right = 350.0
 offset_bottom = 30.0
 
-[node name="Row2" type="HBoxContainer" parent="VBoxContainer"]
-offset_top = 34.0
+[node name="Row1" type="HBoxContainer" parent="VBoxContainer/Control"]
+offset_top = -8.0
 offset_right = 350.0
-offset_bottom = 34.0
+offset_bottom = -8.0
+
+[node name="Row2" type="HBoxContainer" parent="VBoxContainer/Control"]
+offset_top = -4.0
+offset_right = 350.0
+offset_bottom = -4.0

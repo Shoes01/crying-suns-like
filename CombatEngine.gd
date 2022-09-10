@@ -2,6 +2,10 @@ class_name CombatEngine
 extends Node
 
 
+func _ready() -> void:
+	print(name, " is ready.")
+
+
 func card_vs_unit(card, unit) -> bool:
 	var success : bool = true
 	# Loop through all the icons on the card.

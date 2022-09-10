@@ -28,28 +28,38 @@ offset_right = 350.0
 offset_bottom = 26.0
 text = "Soldiers"
 
-[node name="SoldierRow1" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+[node name="SoldierArea" type="Control" parent="VBoxContainer/VBoxContainer"]
 offset_top = 30.0
 offset_right = 350.0
 offset_bottom = 30.0
 
-[node name="SoldierRow2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
-offset_top = 34.0
+[node name="SoldierRow1" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/SoldierArea"]
+offset_top = 4.0
 offset_right = 350.0
-offset_bottom = 34.0
+offset_bottom = 4.0
+
+[node name="SoldierRow2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/SoldierArea"]
+offset_top = 8.0
+offset_right = 350.0
+offset_bottom = 8.0
 
 [node name="IconTitle" type="Label" parent="VBoxContainer/VBoxContainer"]
-offset_top = 38.0
+offset_top = 34.0
 offset_right = 350.0
-offset_bottom = 64.0
+offset_bottom = 60.0
 text = "Icons"
 
-[node name="IconRow1" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
-offset_top = 68.0
+[node name="IconArea" type="Control" parent="VBoxContainer/VBoxContainer"]
+offset_top = 64.0
 offset_right = 350.0
-offset_bottom = 68.0
+offset_bottom = 64.0
 
-[node name="IconRow2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
-offset_top = 72.0
+[node name="IconRow1" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/IconArea"]
+offset_top = 4.0
 offset_right = 350.0
-offset_bottom = 72.0
+offset_bottom = 4.0
+
+[node name="IconRow2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/IconArea"]
+offset_top = 8.0
+offset_right = 350.0
+offset_bottom = 8.0

@@ -1,14 +1,8 @@
 res://Main.tscn
-res://UI/EncounterPanel.gd
-res://Main.gd
-res://MissionLogic.gd
 res://UI/MissionPanel.tscn
-res://UI/PlayerPanel.gd
-res://UI/MissionPanel.gd
-res://missions/BaseMission.gd
-res://UI/CardPanel.gd
 res://UI/EncounterPanel.tscn
 res://UI/CardPanel.tscn
 res://UI/PlayerPanel.tscn
 res://UI/UnitPanel.tscn
-res://UI/UnitPanel.gd
+res://MissionLogic.gd
+res://Main.gd

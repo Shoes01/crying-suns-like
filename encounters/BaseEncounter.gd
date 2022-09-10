@@ -7,8 +7,8 @@ var cards : Array
 var was_attempted := false
 var was_succesful := false
 
-var attack_card = preload("res://cards/AttackCard.gd")
-var defense_card = preload("res://cards/DefenseCard.gd")
+var attack_card = load("res://cards/AttackCard.gd")
+var defense_card = load("res://cards/DefenseCard.gd")
 
 
 func set_success(value: bool) -> void:

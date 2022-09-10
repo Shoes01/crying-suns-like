@@ -1,7 +1,17 @@
+class_name CardPanel
 extends Panel
 
-@onready var card_title = $MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer/CardPanel/VBoxContainer/CardTitle
-@onready var card_icon_area = $MissionPanel/VBoxContainer/EncounterPanel/VBoxContainer/CardPanel/VBoxContainer
+@onready var card_title = $VBoxContainer/CardTitle
+@onready var card_icon_area = $VBoxContainer/Control
+
+
+func _ready() -> void:
+	print("CARD PANEL ready.")
+
+
+func TEST():
+	print("CARD PANEL TEST FUNCTION")
+
 
 func update_card(event: Dictionary) -> void:
 	if event.has("new_card"):

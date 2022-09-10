@@ -4,6 +4,10 @@ extends Panel
 @onready var log_node = $VBoxContainer/LogScroll/LogText
 
 
+func _ready() -> void:
+	print("MISSION PANEL ready.")
+
+
 func _on_UI_updated(event : Dictionary) -> void:
 	# Update mission-related UI.
 	if event.has("log_entry"): 

@@ -15,13 +15,16 @@ var card_counter := 0
 var encounter_counter := 0
 var mission_counter := 1
 
-var combat_engine = preload("res://CombatEngine.gd").new()
+var combat_engine = load("res://CombatEngine.gd").new()
 var player : Player
 var mission : Mission
 
 
 func prepare_mission(new_mission : Mission) -> void:
 	mission = new_mission
+	# PLACEHOLDER: Draw the first card.
+	card_counter -= 1
+	_draw_new_card()
 
 
 func prepare_player(new_player : Player) -> void:
@@ -29,26 +32,33 @@ func prepare_player(new_player : Player) -> void:
 
 
 func _on_draw_button_pressed() -> void:
-	_draw_new_card()
+	# Draw subsequent cards.
+	
 	_fight_the_new_card()
 	_check_player() # Check to see if the player is dead.
 	_check_encounter_progress() # Also check for win condition.
-	
+	_draw_new_card()
 	# Update the unit UI.
 	## Until units are properly added, I will do this.
 	var event := {}
 	event["player_hack"] = player
-	emit_signal("UI_update", event)
+	emit_signal("UI_updated", event)
 
 
 func _draw_new_card() -> void:
+	if Global.game_state == "DEFEAT" or Global.game_state == "VICTORY":
+		return
 	var event := {}
-	# Mew card is being drawn.
+	# Increment counter.
 	card_counter += 1
+	# CHECK IF THERE IS A NEW CARD.
+	## Otherwise, new encounter.
+	if card_counter == mission.encounters[encounter_counter].cards.size():
+		_prepare_next_encounter()
 	# Emit a signal to update the UI with this card.
 	var new_card : Card = mission.encounters[encounter_counter].cards[card_counter]
 	event["new_card"] = new_card
-	emit_signal("UI_update", event)
+	emit_signal("UI_updated", event)
 
 
 func _fight_the_new_card() -> void:
@@ -65,7 +75,7 @@ func _fight_the_new_card() -> void:
 	log_entry["fight_won"] = success
 	event["log_entry"] = log_entry
 	# Emit the signal.
-	emit_signal("UI_update", event)
+	emit_signal("UI_updated", event)
 
 
 func _check_player() -> void:
@@ -76,16 +86,18 @@ func _check_player() -> void:
 		Global.game_state = "DEFEAT"
 
 
+func _prepare_next_encounter() -> void:
+	card_counter = 0
+	encounter_counter += 1
+	# Update the UI.
+	var event := {}
+	var new_encounter : Encounter = mission.encounters[encounter_counter]
+	event["new_encounter"] = new_encounter
+	emit_signal("UI_updated", event)
+
+
 func _check_encounter_progress() -> void:
-	# Check if the encounter is out of cards.
-	if card_counter >= mission.encounters[encounter_counter].cards.size():
-		card_counter = 0
-		encounter_counter += 1
-		# Update the UI.
-		var event := {}
-		var new_encounter : Encounter = mission.encounters[encounter_counter]
-		event["new_encounter"] = new_encounter
-		emit_signal("UI_update", event)
+	print("DEBUG: Card count: ", str(card_counter), ". Number of cards: ", str(mission.encounters[encounter_counter].cards.size()), ".")
 	# Check if the mission is out of encounters.
 	if encounter_counter >= mission.encounters.size():
 		get_tree().change_scene("res://GameOver.tscn")
