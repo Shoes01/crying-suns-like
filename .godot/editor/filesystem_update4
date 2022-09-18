@@ -1,8 +1,0 @@
-res://Main.tscn
-res://UI/MissionPanel.tscn
-res://UI/EncounterPanel.tscn
-res://UI/CardPanel.tscn
-res://UI/PlayerPanel.tscn
-res://UI/UnitPanel.tscn
-res://MissionLogic.gd
-res://Main.gd
