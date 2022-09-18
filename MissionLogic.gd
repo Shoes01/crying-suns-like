@@ -82,7 +82,7 @@ func _check_player() -> void:
 	# Check if the player has any soldiers remaining.
 	# NOTE: This will be replaced once units are a thing.
 	if player.soldier_count <= 0:
-		get_tree().change_scene("res://GameOver.tscn")
+		get_tree().change_scene_to_file("res://GameOver.tscn")
 		Global.game_state = "DEFEAT"
 
 
@@ -100,7 +100,7 @@ func _check_encounter_progress() -> void:
 	print("DEBUG: Card count: ", str(card_counter), ". Number of cards: ", str(mission.encounters[encounter_counter].cards.size()), ".")
 	# Check if the mission is out of encounters.
 	if encounter_counter >= mission.encounters.size():
-		get_tree().change_scene("res://GameOver.tscn")
+		get_tree().change_scene_to_file("res://GameOver.tscn")
 		encounter_counter = 0
 		Global.game_state = "VICTORY"
 

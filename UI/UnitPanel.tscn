@@ -8,60 +8,74 @@ offset_bottom = 300.0
 script = ExtResource("1_ahel8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="UnitTitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 offset_right = 350.0
 offset_bottom = 26.0
 text = "[ UNIT ]"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
 offset_top = 30.0
 offset_right = 350.0
 offset_bottom = 300.0
 size_flags_vertical = 3
 
 [node name="SoldierTitle" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 350.0
 offset_bottom = 26.0
 text = "Soldiers"
 
 [node name="SoldierArea" type="Control" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+anchors_preset = 0
 offset_top = 30.0
 offset_right = 350.0
 offset_bottom = 133.0
 size_flags_vertical = 3
 
 [node name="SoldierRow1" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/SoldierArea"]
+layout_mode = 0
 offset_top = 4.0
 offset_right = 350.0
 offset_bottom = 4.0
 
 [node name="SoldierRow2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/SoldierArea"]
+layout_mode = 0
 offset_top = 8.0
 offset_right = 350.0
 offset_bottom = 8.0
 
 [node name="IconTitle" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 137.0
 offset_right = 350.0
 offset_bottom = 163.0
 text = "Icons"
 
 [node name="IconArea" type="Control" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+anchors_preset = 0
 offset_top = 167.0
 offset_right = 350.0
 offset_bottom = 270.0
 size_flags_vertical = 3
 
 [node name="IconRow1" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/IconArea"]
+layout_mode = 0
 offset_top = 4.0
 offset_right = 350.0
 offset_bottom = 4.0
 
 [node name="IconRow2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/IconArea"]
+layout_mode = 0
 offset_top = 8.0
 offset_right = 350.0
 offset_bottom = 8.0
