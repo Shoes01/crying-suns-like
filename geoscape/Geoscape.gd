@@ -10,7 +10,7 @@ extends Node2D
 
 var is_mission_ready := false
 var mission_embarked_this_turn := false
-var turn := 0
+var turn : int = Global.turn_count
 
 var SATCOM_buttons : ButtonGroup = ButtonGroup.new()
 var XCOM_buttons : ButtonGroup = ButtonGroup.new()
@@ -106,4 +106,5 @@ func _on_confirm_button_pressed():
 	mission_embarked_this_turn = true
 	embark_button.set_pressed(false)
 	
+	Global.turn_count = turn
 	get_tree().change_scene_to_file("res://Battlescape.tscn")
