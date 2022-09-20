@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://2tdnnjghtevv"]
+
+[ext_resource type="Script" path="res://Battlescape.gd" id="1_bbemf"]
+[ext_resource type="PackedScene" uid="uid://by7tvqa1ig7o6" path="res://UI/PlayerPanel.tscn" id="2_2qqws"]
+[ext_resource type="PackedScene" uid="uid://c0apjgiwt8qa4" path="res://UI/MissionPanel.tscn" id="3_l18pc"]
+[ext_resource type="Script" path="res://MissionLogic.gd" id="4_ouejo"]
+
+[node name="Mission" type="Node2D"]
+script = ExtResource("1_bbemf")
+
+[node name="PlayerPanel" parent="." instance=ExtResource("2_2qqws")]
+
+[node name="MissionPanel" parent="." instance=ExtResource("3_l18pc")]
+offset_left = 600.0
+offset_right = 950.0
+
+[node name="MissionLogic" type="Node" parent="."]
+script = ExtResource("4_ouejo")

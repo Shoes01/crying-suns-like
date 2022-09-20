@@ -105,3 +105,5 @@ func _on_confirm_button_pressed():
 	is_mission_ready = false
 	mission_embarked_this_turn = true
 	embark_button.set_pressed(false)
+	
+	get_tree().change_scene_to_file("res://Battlescape.tscn")

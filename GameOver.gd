@@ -13,3 +13,8 @@ func _ready():
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://NewGame.tscn")
 	Global.game_state = "NEW_GAME"
+
+
+func _on_button_2_pressed():
+	get_tree().change_scene_to_file("res://geoscape/Geoscape.tscn")
+	Global.game_state = "GAME"

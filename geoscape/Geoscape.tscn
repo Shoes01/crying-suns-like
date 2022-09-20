@@ -15,7 +15,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,34 +22,29 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
 offset_right = 1139.0
 offset_bottom = 26.0
 text = "GEOSCAPE"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
-layout_mode = 2
 offset_top = 30.0
 offset_right = 1139.0
 offset_bottom = 534.0
 size_flags_vertical = 3
 
 [node name="SATCOM" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
 offset_right = 567.0
 offset_bottom = 504.0
 size_flags_horizontal = 3
 
 [node name="Title" type="Label" parent="Panel/VBoxContainer/HBoxContainer/SATCOM"]
-layout_mode = 2
 offset_right = 567.0
 offset_bottom = 26.0
 text = "SATCOM"
 horizontal_alignment = 1
 
 [node name="IdleButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer/SATCOM"]
-layout_mode = 2
 offset_top = 30.0
 offset_right = 567.0
 offset_bottom = 61.0
@@ -58,7 +52,6 @@ toggle_mode = true
 text = "Idle"
 
 [node name="ScanButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer/SATCOM"]
-layout_mode = 2
 offset_top = 65.0
 offset_right = 567.0
 offset_bottom = 96.0
@@ -67,21 +60,18 @@ button_group = SubResource("ButtonGroup_6x4v4")
 text = "Scan for new missions"
 
 [node name="XCOM" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
 offset_left = 571.0
 offset_right = 1139.0
 offset_bottom = 504.0
 size_flags_horizontal = 3
 
 [node name="Title" type="Label" parent="Panel/VBoxContainer/HBoxContainer/XCOM"]
-layout_mode = 2
 offset_right = 568.0
 offset_bottom = 26.0
 text = "XCOM"
 horizontal_alignment = 1
 
 [node name="RestButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer/XCOM"]
-layout_mode = 2
 offset_top = 30.0
 offset_right = 568.0
 offset_bottom = 61.0
@@ -89,7 +79,6 @@ toggle_mode = true
 text = "Rest"
 
 [node name="EmbarkButton" type="Button" parent="Panel/VBoxContainer/HBoxContainer/XCOM"]
-layout_mode = 2
 offset_top = 65.0
 offset_right = 568.0
 offset_bottom = 96.0
@@ -97,14 +86,12 @@ toggle_mode = true
 text = "Embark on new misison"
 
 [node name="ConfirmButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
 offset_top = 538.0
 offset_right = 1139.0
 offset_bottom = 569.0
 text = "CONFIRM: EMBARK ON MISSION?"
 
 [node name="TurnCounter" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
 offset_top = 573.0
 offset_right = 1139.0
 offset_bottom = 599.0
@@ -112,7 +99,6 @@ text = "Turn: 0"
 horizontal_alignment = 2
 
 [node name="ActionButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
 offset_top = 603.0
 offset_right = 1139.0
 offset_bottom = 634.0

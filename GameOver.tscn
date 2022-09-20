@@ -10,17 +10,35 @@ offset_right = 300.0
 offset_bottom = 140.0
 
 [node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 text = "Game over."
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "New Game?"
+
+[node name="Button2" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -15.5
 offset_bottom = 15.5
-text = "Restart?"
+grow_horizontal = 2
+grow_vertical = 2
+text = "Return to Battlescape"
 
 [connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Button2" to="." method="_on_button_2_pressed"]

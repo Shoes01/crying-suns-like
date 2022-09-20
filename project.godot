@@ -99,7 +99,7 @@ _global_script_class_icons={
 [application]
 
 config/name="crying-suns-like"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://NewGame.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
 
