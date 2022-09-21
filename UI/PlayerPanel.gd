@@ -1,7 +1,7 @@
 extends Panel
 
-@onready var data = $VBoxContainer/PlayerData
-@onready var unit : Node = $VBoxContainer/UnitPanel
+@onready var data = $ScrollContainer/VBoxContainer/PlayerData
+@onready var unit : Node = $ScrollContainer/VBoxContainer/UnitPanel
 
 
 func _on_UI_updated(event : Dictionary) -> void:
@@ -11,10 +11,3 @@ func _on_UI_updated(event : Dictionary) -> void:
 	# Update sub-player UI.
 	unit.update_unit(event)
 
-
-
-func _on_unit_panel_gui_input(event: InputEvent) -> void:
-	# When the unit is clicked, highlight it.
-	# When allow the unit to 
-	
-	pass # Replace with function body.

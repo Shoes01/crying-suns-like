@@ -5,37 +5,45 @@
 
 [node name="PlayerPanel" type="Panel"]
 offset_right = 350.0
-offset_bottom = 500.0
+offset_bottom = 647.0
 script = ExtResource("1_0ft6x")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+offset_right = 342.0
+offset_bottom = 864.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 metadata/_edit_layout_mode = 1
 
-[node name="PlayerTitle" type="Label" parent="VBoxContainer"]
-offset_right = 350.0
+[node name="PlayerTitle" type="Label" parent="ScrollContainer/VBoxContainer"]
+offset_right = 342.0
 offset_bottom = 26.0
 text = "[ PLAYER ]"
 horizontal_alignment = 1
 
-[node name="PlayerData" type="Label" parent="VBoxContainer"]
+[node name="PlayerData" type="Label" parent="ScrollContainer/VBoxContainer"]
 offset_top = 30.0
-offset_right = 350.0
+offset_right = 342.0
 offset_bottom = 56.0
 text = "Player data"
 
-[node name="UnitPanel" parent="VBoxContainer" instance=ExtResource("1_hokwi")]
+[node name="UnitPanel" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_hokwi")]
+custom_minimum_size = Vector2i(0, 400)
 offset_top = 60.0
-offset_bottom = 278.0
-size_flags_vertical = 3
+offset_right = 342.0
+offset_bottom = 460.0
 
-[node name="UnitPanel2" parent="VBoxContainer" instance=ExtResource("1_hokwi")]
-offset_top = 282.0
-offset_bottom = 500.0
-size_flags_vertical = 3
-
-[connection signal="gui_input" from="VBoxContainer/UnitPanel" to="." method="_on_unit_panel_gui_input"]
+[node name="UnitPanel2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_hokwi")]
+custom_minimum_size = Vector2i(0, 400)
+offset_top = 464.0
+offset_right = 342.0
+offset_bottom = 864.0
