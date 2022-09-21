@@ -30,5 +30,12 @@ text = "Player data"
 
 [node name="UnitPanel" parent="VBoxContainer" instance=ExtResource("1_hokwi")]
 offset_top = 60.0
+offset_bottom = 278.0
+size_flags_vertical = 3
+
+[node name="UnitPanel2" parent="VBoxContainer" instance=ExtResource("1_hokwi")]
+offset_top = 282.0
 offset_bottom = 500.0
 size_flags_vertical = 3
+
+[connection signal="gui_input" from="VBoxContainer/UnitPanel" to="." method="_on_unit_panel_gui_input"]

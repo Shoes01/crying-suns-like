@@ -74,6 +74,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://encounters/SecondEncounter.gd"
 }, {
+"base": "Node",
+"class": &"Strategy",
+"language": &"GDScript",
+"path": "res://strategies/StarterStrategy.gd"
+}, {
 "base": "Icon",
 "class": &"TakeCoverIcon",
 "language": &"GDScript",
@@ -93,6 +98,7 @@ _global_script_class_icons={
 "OpenFireIcon": "",
 "Player": "",
 "SecondEncounter": "",
+"Strategy": "",
 "TakeCoverIcon": ""
 }
 
@@ -107,6 +113,7 @@ config/icon="res://icon.png"
 
 Global="*res://Global.gd"
 Icons="*res://Icons.gd"
+Strategies="*res://Strategies.gd"
 
 [gui]
 

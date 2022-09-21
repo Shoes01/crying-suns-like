@@ -11,3 +11,10 @@ func _on_UI_updated(event : Dictionary) -> void:
 	# Update sub-player UI.
 	unit.update_unit(event)
 
+
+
+func _on_unit_panel_gui_input(event: InputEvent) -> void:
+	# When the unit is clicked, highlight it.
+	# When allow the unit to 
+	
+	pass # Replace with function body.
