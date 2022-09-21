@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://2tdnnjghtevv"]
+[gd_scene load_steps=9 format=3 uid="uid://2tdnnjghtevv"]
 
 [ext_resource type="Script" path="res://Battlescape.gd" id="1_bbemf"]
 [ext_resource type="PackedScene" uid="uid://by7tvqa1ig7o6" path="res://UI/PlayerPanel.tscn" id="2_2qqws"]
 [ext_resource type="PackedScene" uid="uid://c0apjgiwt8qa4" path="res://UI/MissionPanel.tscn" id="3_l18pc"]
 [ext_resource type="Script" path="res://MissionLogic.gd" id="4_ouejo"]
+[ext_resource type="Texture2D" uid="uid://c2jif5hh0lscj" path="res://assets/barracks-tent.svg" id="5_cbbly"]
+[ext_resource type="Texture2D" uid="uid://m4baq1gp35qr" path="res://assets/great-pyramid.svg" id="6_82grm"]
+[ext_resource type="Texture2D" uid="uid://b2wi4uqylbo6e" path="res://assets/wood-cabin.svg" id="7_ibke2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vv62"]
+radius = 248.032
 
 [node name="Mission" type="Node2D"]
 script = ExtResource("1_bbemf")
@@ -11,8 +17,47 @@ script = ExtResource("1_bbemf")
 [node name="PlayerPanel" parent="." instance=ExtResource("2_2qqws")]
 
 [node name="MissionPanel" parent="." instance=ExtResource("3_l18pc")]
+visible = false
 offset_left = 600.0
 offset_right = 950.0
 
 [node name="MissionLogic" type="Node" parent="."]
 script = ExtResource("4_ouejo")
+
+[node name="Tent" type="Area2D" parent="."]
+position = Vector2(669, 175)
+scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Tent"]
+texture = ExtResource("5_cbbly")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Tent"]
+position = Vector2(-4, 2)
+shape = SubResource("CircleShape2D_1vv62")
+
+[node name="Pyramid" type="Area2D" parent="."]
+position = Vector2(1001, 141)
+scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Pyramid"]
+position = Vector2(-2, -2)
+texture = ExtResource("6_82grm")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Pyramid"]
+position = Vector2(-4, 0)
+shape = SubResource("CircleShape2D_1vv62")
+
+[node name="Cabin" type="Area2D" parent="."]
+position = Vector2(867, 457)
+scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="Sprite2D" parent="Cabin"]
+position = Vector2(0, 2)
+texture = ExtResource("7_ibke2")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Cabin"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_1vv62")
