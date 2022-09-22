@@ -5,6 +5,7 @@ extends TextureRect
 signal clicked
 
 var color := Color("white")
+var is_clicked : bool = false
 
 
 func _init(base_color: Color) -> void:
@@ -22,13 +23,16 @@ func _on_texture_rect_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			set_modulate(Color("green"))
+			is_clicked = !is_clicked # toggle clicked state
 			clicked.emit()
 
 
 func _on_texture_rect_mouse_entered() -> void:
-	set_modulate(Color("yellow"))
+	if !is_clicked:
+		set_modulate(Color("yellow"))
 
 
 func _on_texture_rect_mouse_exited() -> void:
-	set_modulate(Color(color))
+	if !is_clicked:
+		set_modulate(Color(color))
 

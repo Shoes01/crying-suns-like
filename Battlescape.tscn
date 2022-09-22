@@ -48,11 +48,3 @@ texture = ExtResource("7_ibke2")
 [node name="CollisionShape2d" type="CollisionShape2D" parent="Cabin"]
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_1vv62")
-
-[node name="StratLabel" type="Label" parent="."]
-offset_left = 502.0
-offset_top = 614.0
-offset_right = 726.0
-offset_bottom = 640.0
-size_flags_vertical = 8
-text = "CHOSEN STRATEGY: nothing."

@@ -12,8 +12,10 @@ var local_state := "NO_STATE" # Gonna try this without the singleton.
 func _ready() -> void:
 	# Connect signals.
 	mission_UI.encounter.draw_button_pressed.connect(Callable(mission_logic, "_on_draw_button_pressed"))
+	player_UI.unit.strategy_chosen.connect(Callable(mission_logic, "_on_strategy_chosen"))
 	mission_logic.UI_updated.connect(Callable(mission_UI, "_on_UI_updated"))
 	mission_logic.UI_updated.connect(Callable(player_UI, "_on_UI_updated"))
+	
 	# Prepare new mission with required data.
 	player = load("res://Player.gd").new() 				# PLACEHOLDER
 	mission = load("res://missions/NewMission.gd").new() # PLACEHOLDER
@@ -21,9 +23,7 @@ func _ready() -> void:
 	mission_logic.prepare_mission(mission)
 	mission_logic.prepare_player(player)
 	
-	player_UI.unit.strategy_chosen.connect(Callable(self, "_on_strategy_chosen"))
-
-	_generate()
+	_generate() # Generate battlescape set-pieces.
 
 
 func _generate() -> void:
@@ -32,7 +32,5 @@ func _generate() -> void:
 	tent.set_texture(load("res://assets/barracks-tent.svg"))
 	tent.set_position(Vector2(500, 100))
 	tent.set_scale(Vector2(0.5, 0.5))
-
-
-func _on_strategy_chosen(strat: String) -> void:
-	$StratLabel.set_text("CHOSEN STRATEGY: " + strat)
+	var callable = Callable(mission_logic, "_on_encounter_clicked")
+	tent.clicked.connect(callable.bind(tent))

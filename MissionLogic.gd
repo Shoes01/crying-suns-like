@@ -18,6 +18,18 @@ var mission_counter := 1
 var combat_engine = load("res://CombatEngine.gd").new()
 var player : Player
 var mission : Mission
+var chosen_strategy : String = "none"
+
+
+func _on_encounter_clicked(encounter) -> void:
+	if chosen_strategy == "none":
+		return
+	else:
+		print("PREPARE FOR COMBAT! The color is " + str(encounter.color))
+
+
+func _on_strategy_chosen(value: String) -> void:
+	chosen_strategy = value
 
 
 func prepare_mission(new_mission : Mission) -> void:
