@@ -49,7 +49,7 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://icons/BaseIcon.gd"
 }, {
-"base": "Node2D",
+"base": "TextureRect",
 "class": &"IconInteractor",
 "language": &"GDScript",
 "path": "res://UI/IconInteractor.gd"
@@ -82,7 +82,7 @@ _global_script_classes=[{
 "base": "Node",
 "class": &"Strategy",
 "language": &"GDScript",
-"path": "res://strategies/StarterStrategy.gd"
+"path": "res://strategies/BaseStrategy.gd"
 }, {
 "base": "Icon",
 "class": &"TakeCoverIcon",

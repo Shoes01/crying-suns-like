@@ -1,6 +1,9 @@
 extends Panel
 
 
+signal strategy_chosen(strategy)
+
+
 func update_unit(event: Dictionary) -> void:
 	var player
 	if event.has("player_hack"):
@@ -27,9 +30,9 @@ func update_unit(event: Dictionary) -> void:
 	# Populate soldiers.
 	col = 1
 	for n in current_unit.soldier_count:
-		var texture_rect := TextureRect.new()
+		var soldier_color = Color("medium sea green")
+		var texture_rect := IconInteractor.new(soldier_color)
 		texture_rect.set_texture(load("res://icon.png"))
-		texture_rect.set_modulate(Color("green"))
 		if col <= 5:
 			var row = soldier_area.get_node("SoldierRow1")
 			row.add_child(texture_rect)
@@ -44,9 +47,8 @@ func update_unit(event: Dictionary) -> void:
 	col = 1
 	for icon in player.icons:
 		for quantity in player.icons[icon]:
-			var texture_rect := TextureRect.new()
+			var texture_rect := IconInteractor.new(icon.color)
 			texture_rect.set_texture(load(icon.sprite_path))
-			texture_rect.set_modulate(icon.color)
 			if col <= 5:
 				var row = icon_area.get_node("IconRow1")
 				row.add_child(texture_rect)
@@ -61,9 +63,9 @@ func update_unit(event: Dictionary) -> void:
 	col = 1
 	for strategy in player.strategies:
 		for quantity in player.strategies[strategy]:
-			var texture_rect := TextureRect.new()
+			var texture_rect := IconInteractor.new(strategy.color)
 			texture_rect.set_texture(load(strategy.sprite_path))
-			texture_rect.set_modulate(strategy.color)
+			texture_rect.connect("clicked", Callable(self, "_emit_strat_signal"))
 			if col <= 5:
 				var row = strategy_area.get_node("StrategyRow1")
 				row.add_child(texture_rect)
@@ -74,3 +76,7 @@ func update_unit(event: Dictionary) -> void:
 				print("TOO MANY STRATEGIES!!!")
 				var row = strategy_area.get_node("StrategyRow2")
 				row.add_child(texture_rect)
+
+
+func _emit_strat_signal() -> void:
+	strategy_chosen.emit("WHATEVER")

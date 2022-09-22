@@ -3,14 +3,8 @@
 [ext_resource type="Script" path="res://UI/IconInteractor.gd" id="1_8vgq4"]
 [ext_resource type="Texture2D" uid="uid://di15ddqt34n3c" path="res://icon.png" id="1_lljsw"]
 
-[node name="IconInteractor" type="Node2D"]
-script = ExtResource("1_8vgq4")
-
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect"]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_lljsw")
-
-[connection signal="gui_input" from="TextureRect" to="." method="_on_texture_rect_gui_input"]
-[connection signal="mouse_entered" from="TextureRect" to="." method="_on_texture_rect_mouse_entered"]
-[connection signal="mouse_exited" from="TextureRect" to="." method="_on_texture_rect_mouse_exited"]
+script = ExtResource("1_8vgq4")

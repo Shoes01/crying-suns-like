@@ -20,4 +20,19 @@ func _ready() -> void:
 	player_UI.unit.update_unit({"player_hack": player})
 	mission_logic.prepare_mission(mission)
 	mission_logic.prepare_player(player)
+	
+	player_UI.unit.strategy_chosen.connect(Callable(self, "_on_strategy_chosen"))
 
+	_generate()
+
+
+func _generate() -> void:
+	var tent = load("res://UI/IconInteractor.gd").new(Color("white"))
+	add_child(tent)
+	tent.set_texture(load("res://assets/barracks-tent.svg"))
+	tent.set_position(Vector2(500, 100))
+	tent.set_scale(Vector2(0.5, 0.5))
+
+
+func _on_strategy_chosen(strat: String) -> void:
+	$StratLabel.set_text("CHOSEN STRATEGY: " + strat)

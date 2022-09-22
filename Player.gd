@@ -5,7 +5,7 @@ var soldier_count = 5
 var loot = 0
 
 var icons = {Icons.open_fire: 2, Icons.take_cover: 1}
-var strategies = {Strategies.starter: 1}
+var strategies = {Strategies.waiting: 1, Strategies.starter: 1}
 
 
 func _ready() -> void:
