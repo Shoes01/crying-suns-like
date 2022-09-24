@@ -6,6 +6,7 @@ signal clicked
 
 var color := Color("white")
 var is_clicked : bool = false
+var encounter_data : Encounter
 
 
 func _init(base_color: Color) -> void:

@@ -4,6 +4,8 @@ extends Node
 var title = "base encounter title"
 var description = "base encounter description"
 var cards : Array
+var sprite_path := "res://icon.png"
+var color := Color("white")
 var was_attempted := false
 var was_succesful := false
 

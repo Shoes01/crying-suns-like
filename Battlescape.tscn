@@ -1,16 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://2tdnnjghtevv"]
+[gd_scene load_steps=10 format=3 uid="uid://2tdnnjghtevv"]
 
 [ext_resource type="Script" path="res://Battlescape.gd" id="1_bbemf"]
 [ext_resource type="PackedScene" uid="uid://by7tvqa1ig7o6" path="res://UI/PlayerPanel.tscn" id="2_2qqws"]
 [ext_resource type="PackedScene" uid="uid://c0apjgiwt8qa4" path="res://UI/MissionPanel.tscn" id="3_l18pc"]
 [ext_resource type="Script" path="res://MissionLogic.gd" id="4_ouejo"]
+[ext_resource type="Script" path="res://CombatEngine.gd" id="5_556ya"]
 [ext_resource type="Texture2D" uid="uid://m4baq1gp35qr" path="res://assets/great-pyramid.svg" id="6_82grm"]
 [ext_resource type="Texture2D" uid="uid://b2wi4uqylbo6e" path="res://assets/wood-cabin.svg" id="7_ibke2"]
+[ext_resource type="Script" path="res://battlescape/MissionGenerator.gd" id="8_e36qi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1vv62"]
 radius = 248.032
 
-[node name="Mission" type="Node2D"]
+[node name="Mission" type="Node"]
 script = ExtResource("1_bbemf")
 
 [node name="PlayerPanel" parent="." instance=ExtResource("2_2qqws")]
@@ -22,31 +24,41 @@ offset_left = 750.0
 offset_right = 1150.0
 offset_bottom = 650.0
 
-[node name="MissionLogic" type="Node" parent="."]
-script = ExtResource("4_ouejo")
+[node name="MissionArea" type="Node2D" parent="."]
 
-[node name="Pyramid" type="Area2D" parent="."]
+[node name="Pyramid" type="Area2D" parent="MissionArea"]
 position = Vector2(1001, 141)
 scale = Vector2(0.5, 0.5)
 metadata/_edit_group_ = true
 
-[node name="Sprite" type="Sprite2D" parent="Pyramid"]
+[node name="Sprite" type="Sprite2D" parent="MissionArea/Pyramid"]
 position = Vector2(-2, -2)
 texture = ExtResource("6_82grm")
 
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Pyramid"]
+[node name="CollisionShape2d" type="CollisionShape2D" parent="MissionArea/Pyramid"]
 position = Vector2(-4, 0)
 shape = SubResource("CircleShape2D_1vv62")
 
-[node name="Cabin" type="Area2D" parent="."]
+[node name="Cabin" type="Area2D" parent="MissionArea"]
 position = Vector2(867, 457)
 scale = Vector2(0.5, 0.5)
 metadata/_edit_group_ = true
 
-[node name="Sprite" type="Sprite2D" parent="Cabin"]
+[node name="Sprite" type="Sprite2D" parent="MissionArea/Cabin"]
 position = Vector2(0, 2)
 texture = ExtResource("7_ibke2")
 
-[node name="CollisionShape2d" type="CollisionShape2D" parent="Cabin"]
+[node name="CollisionShape2d" type="CollisionShape2D" parent="MissionArea/Cabin"]
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_1vv62")
+
+[node name="MissionLogic" type="Node" parent="."]
+script = ExtResource("4_ouejo")
+
+[node name="CombatEngine" type="Node" parent="MissionLogic"]
+script = ExtResource("5_556ya")
+
+[node name="Tools" type="Node" parent="."]
+
+[node name="MissionGenerator" type="Node" parent="Tools"]
+script = ExtResource("8_e36qi")

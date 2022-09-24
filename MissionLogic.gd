@@ -1,13 +1,5 @@
 extends Node
 
-# When the DRAW CARD button is drawn, it should emit a signal this this node picks up.
-## This node will know which card and unit are present and all that. It will move the mission along.
-## It will then emit a signal contianing the results of the battle.
-## The UI will listen for the signal and update.
-### The UI will not "keep record" of anything. The UI will be entirely updated based on the signal emitted.
-#### I can either emit signals to update parts, or a single signal to update the entire thing.
-##### Ex: a single that sends out mission, encounter, card, player, unit. I don't know which is easiest.
-
 signal UI_updated(event)
 
 var battle_counter := 0
@@ -15,38 +7,34 @@ var card_counter := 0
 var encounter_counter := 0
 var mission_counter := 1
 
-var combat_engine = load("res://CombatEngine.gd").new()
+var combat_engine = get_node("CombatEngine")
 var player : Player
 var mission : Mission
 var chosen_strategy : String = "none"
 
 
+func prepare_mission(new_mission : Mission) -> void:
+	mission = new_mission
+
+
+func prepare_player(new_player : Player) -> void:
+	player = new_player
+
+# Related to a signal.
 func _on_encounter_clicked(encounter : Encounter) -> void:
 	var event := {}
 	if chosen_strategy == "none":
 		return
 	else:
 		print("Prepare encounter.")
-		event["begin_encounter"] = true
 		event["new_encounter"] = encounter
 		UI_updated.emit(event)
 
-
+# Related to a signal.
 func _on_strategy_chosen(value: String) -> void:
 	chosen_strategy = value
 
-
-func prepare_mission(new_mission : Mission) -> void:
-	mission = new_mission
-	# PLACEHOLDER: Draw the first card.
-	card_counter -= 1
-	_draw_new_card()
-
-
-func prepare_player(new_player : Player) -> void:
-	player = new_player
-
-
+# Related to a signal.
 func _on_draw_button_pressed() -> void:
 	# Draw subsequent cards.
 	

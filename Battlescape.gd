@@ -1,12 +1,9 @@
-extends Node2D
+extends Node
+
 
 @onready var mission_logic: Node = $MissionLogic
 @onready var mission_UI: Node = $MissionPanel
 @onready var player_UI: Node = $PlayerPanel
-var mission : Mission
-var player : Player
-
-var local_state := "NO_STATE" # Gonna try this without the singleton.
 
 
 func _ready() -> void:
@@ -16,22 +13,20 @@ func _ready() -> void:
 	mission_logic.UI_updated.connect(Callable(mission_UI, "_on_UI_updated"))
 	mission_logic.UI_updated.connect(Callable(player_UI, "_on_UI_updated"))
 	
-	# Prepare new mission with required data.
-	player = load("res://Player.gd").new() 				# PLACEHOLDER
-	mission = load("res://missions/NewMission.gd").new() # PLACEHOLDER
-	player_UI.unit.update_unit({"player_hack": player})
-	mission_logic.prepare_mission(mission)
+	# Send data to MissionLogic.
+	var player = load("res://Player.gd").new() 				# PLACEHOLDER until the Battlescape can be properly invoked by the Geoscape.
+	var mission = load("res://missions/NewMission.gd").new() # PLACEHOLDER (ditto)
 	mission_logic.prepare_player(player)
+	mission_logic.prepare_mission(mission)
 	
-	_generate() # Generate battlescape set-pieces.
+	# Prepare first-time stuff.
+	## UI stuff.
+	player_UI.unit.update_unit({"player_hack": player}) # PLACERHOLDER until the player has proper units.
+	## Mapgen stuff.
+	var children : Array
+	children = get_node("Tools/MissionGenerator").generate(mission)
+	for child in children:
+		get_node("MissionArea").add_child(child)
+		var callable = Callable(mission_logic, "_on_encounter_clicked")
+		child.clicked.connect(callable.bind(child.encounter_data))
 
-
-func _generate() -> void:
-	var tent = load("res://UI/IconInteractor.gd").new(Color("white"))
-	add_child(tent)
-	tent.set_texture(load("res://assets/barracks-tent.svg"))
-	tent.set_position(Vector2(500, 100))
-	tent.set_scale(Vector2(0.5, 0.5))
-	var callable = Callable(mission_logic, "_on_encounter_clicked")
-	var encounter_data = load("res://encounters/FirstEncounter.gd").new()
-	tent.clicked.connect(callable.bind(encounter_data))

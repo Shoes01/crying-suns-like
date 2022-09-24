@@ -12,7 +12,7 @@ func _on_UI_updated(event : Dictionary) -> void:
 	# Update mission-related UI.
 	if event.has("log_entry"): 
 		_update_log(event["log_entry"])
-	if event.has("begin_encounter"):
+	if event.has("new_encounter"):
 		set_visible(true)
 	# Update sub-mission UI.
 	encounter.update_encounter(event)

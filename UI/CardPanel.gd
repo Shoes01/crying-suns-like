@@ -9,10 +9,6 @@ func _ready() -> void:
 	print("CARD PANEL ready.")
 
 
-func TEST():
-	print("CARD PANEL TEST FUNCTION")
-
-
 func update_card(event: Dictionary) -> void:
 	if event.has("new_card"):
 		_update_card_panel(event["new_card"])
@@ -27,9 +23,10 @@ func _update_card_panel(card: Card) -> void:
 		for child in parent.get_children():
 			child.queue_free()
 	## Prepare new list.
-	var col := 1
+	var col := 0
 	for icon in card.icons:
 		for quantity in card.icons[icon]:
+			col += 1
 			var texture_rect := TextureRect.new()
 			texture_rect.set_texture(load(icon.sprite_path))
 			texture_rect.set_modulate(icon.color)
