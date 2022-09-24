@@ -1,8 +1,10 @@
-extends Node
+extends Strategy
 
 
-var sprite_path := "res://icon.png"
-var title := "base strategy title"
-var description := "base strategy description"
-var color := Color("firebrick")
-var bonuses := {} # Don't know what this will be yet.
+func _init() -> void:
+	sprite_path = "res://icon.png"
+	title = "base strategy title"
+	description = "base strategy description"
+	color = Color("firebrick")
+	bonuses = {} # Don't know what this will be yet.
+	cards = [bonus_card.new()]

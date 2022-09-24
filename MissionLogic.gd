@@ -7,15 +7,10 @@ var card_counter := 0
 var encounter_counter := 0
 var mission_counter := 1
 
-var combat_engine = get_node("CombatEngine")
+@onready var combat_engine = get_node("CombatEngine")
 var player : Player
-var mission : Mission
-var chosen_strategy : String = "none"
-
-
-func prepare_mission(new_mission : Mission) -> void:
-	mission = new_mission
-
+var chosen_strategy : Strategy
+var combat_deck : Array
 
 func prepare_player(new_player : Player) -> void:
 	player = new_player
@@ -23,52 +18,52 @@ func prepare_player(new_player : Player) -> void:
 # Related to a signal.
 func _on_encounter_clicked(encounter : Encounter) -> void:
 	var event := {}
-	if chosen_strategy == "none":
-		return
-	else:
+	if chosen_strategy:
 		print("Prepare encounter.")
+		print(chosen_strategy.title) # TEST PRINT
 		event["new_encounter"] = encounter
+		combat_deck = combat_engine.build_deck(encounter, chosen_strategy)
 		UI_updated.emit(event)
 
 # Related to a signal.
-func _on_strategy_chosen(value: String) -> void:
+func _on_strategy_chosen(value: Strategy) -> void:
 	chosen_strategy = value
 
 # Related to a signal.
 func _on_draw_button_pressed() -> void:
-	# Draw subsequent cards.
-	
+	_draw_new_card()
 	_fight_the_new_card()
 	_check_player() # Check to see if the player is dead.
-	_check_encounter_progress() # Also check for win condition.
-	_draw_new_card()
+	
 	# Update the unit UI.
-	## Until units are properly added, I will do this.
 	var event := {}
-	event["player_hack"] = player
+	event["player_hack"] = player # PLACEHOLDER until I have proper units
 	emit_signal("UI_updated", event)
+	
+	# Discard the top card from the deck.
+	combat_deck.pop_front()
+	
+	# Check to see if the deck is empty.
+	if combat_deck.size() == 0:
+		# Strategy is completed!
+		
+		# TODO : now what??????????
+		
+		pass
 
 
 func _draw_new_card() -> void:
 	if Global.game_state == "DEFEAT" or Global.game_state == "VICTORY":
 		return
 	var event := {}
-	# Increment counter.
-	card_counter += 1
-	# CHECK IF THERE IS A NEW CARD.
-	## Otherwise, new encounter.
-	if card_counter == mission.encounters[encounter_counter].cards.size():
-		_prepare_next_encounter()
-	# Emit a signal to update the UI with this card.
-	var new_card : Card = mission.encounters[encounter_counter].cards[card_counter]
-	event["new_card"] = new_card
+	event["new_card"] = combat_deck[0]
 	emit_signal("UI_updated", event)
 
 
 func _fight_the_new_card() -> void:
 	var event := {}
 	# Determine the outcome of the card.
-	var success : bool = combat_engine.card_vs_unit(mission.encounters[encounter_counter].cards[card_counter], player)
+	var success : bool = combat_engine.card_vs_unit(combat_deck[0], player)
 	# Crude method of tracking progress. TODO : Use this for the log.
 	battle_counter += 1
 	# Log the event.
@@ -88,23 +83,4 @@ func _check_player() -> void:
 	if player.soldier_count <= 0:
 		get_tree().change_scene_to_file("res://GameOver.tscn")
 		Global.game_state = "DEFEAT"
-
-
-func _prepare_next_encounter() -> void:
-	card_counter = 0
-	encounter_counter += 1
-	# Update the UI.
-	var event := {}
-	var new_encounter : Encounter = mission.encounters[encounter_counter]
-	event["new_encounter"] = new_encounter
-	emit_signal("UI_updated", event)
-
-
-func _check_encounter_progress() -> void:
-	print("DEBUG: Card count: ", str(card_counter), ". Number of cards: ", str(mission.encounters[encounter_counter].cards.size()), ".")
-	# Check if the mission is out of encounters.
-	if encounter_counter >= mission.encounters.size():
-		get_tree().change_scene_to_file("res://GameOver.tscn")
-		encounter_counter = 0
-		Global.game_state = "VICTORY"
 

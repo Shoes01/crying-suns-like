@@ -76,7 +76,7 @@ func update_unit(event: Dictionary) -> void:
 			col += 1
 			var texture_rect := IconInteractor.new(strategy.color)
 			texture_rect.set_texture(load(strategy.sprite_path))
-			texture_rect.connect("clicked", Callable(self, "_emit_strat_signal"))
+			texture_rect.connect("clicked", Callable(self, "_emit_strat_signal").bind(strategy))
 			if col <= 5:
 				var row = strategy_area.get_node("StrategyRow1")
 				row.set_size(Vector2(350, 64))
@@ -93,5 +93,5 @@ func update_unit(event: Dictionary) -> void:
 				row.add_child(texture_rect)
 
 
-func _emit_strat_signal() -> void:
-	strategy_chosen.emit("WHATEVER")
+func _emit_strat_signal(strategy : Strategy) -> void:
+	strategy_chosen.emit(strategy)

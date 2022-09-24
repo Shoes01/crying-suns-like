@@ -6,6 +6,15 @@ func _ready() -> void:
 	print(name, " is ready.")
 
 
+func build_deck(encounter : Encounter, strategy : Strategy) -> Array:
+	var deck : Array
+	
+	deck = encounter.cards + strategy.cards
+	deck.shuffle()
+	
+	return deck
+
+
 func card_vs_unit(card, unit) -> bool:
 	var success : bool = true
 	# Loop through all the icons on the card.

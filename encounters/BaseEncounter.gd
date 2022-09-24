@@ -11,6 +11,7 @@ var was_succesful := false
 
 var attack_card = load("res://cards/AttackCard.gd")
 var defense_card = load("res://cards/DefenseCard.gd")
+var bonus_card = load("res://cards/BonusCard.gd")
 
 
 func set_success(value: bool) -> void:

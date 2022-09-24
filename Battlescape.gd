@@ -14,10 +14,9 @@ func _ready() -> void:
 	mission_logic.UI_updated.connect(Callable(player_UI, "_on_UI_updated"))
 	
 	# Send data to MissionLogic.
-	var player = load("res://Player.gd").new() 				# PLACEHOLDER until the Battlescape can be properly invoked by the Geoscape.
-	var mission = load("res://missions/NewMission.gd").new() # PLACEHOLDER (ditto)
+	var player = load("res://Player.gd").new() 					# PLACEHOLDER until the Battlescape can be properly invoked by the Geoscape.
+	var mission = load("res://missions/NewMission.gd").new() 	# PLACEHOLDER (ditto)
 	mission_logic.prepare_player(player)
-	mission_logic.prepare_mission(mission)
 	
 	# Prepare first-time stuff.
 	## UI stuff.
