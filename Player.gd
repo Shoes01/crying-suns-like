@@ -1,10 +1,10 @@
 class_name Player
 extends Node
 
-var soldier_count = 5
+var soldier_count = 6
 var loot = 0
 
-var icons = {Icons.open_fire: 2, Icons.take_cover: 1}
+var icons = {Icons.open_fire: 4, Icons.take_cover: 4}
 var strategies = {Strategies.waiting: 1, Strategies.starter: 1}
 
 

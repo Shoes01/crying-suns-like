@@ -33,4 +33,5 @@ func _generate() -> void:
 	tent.set_position(Vector2(500, 100))
 	tent.set_scale(Vector2(0.5, 0.5))
 	var callable = Callable(mission_logic, "_on_encounter_clicked")
-	tent.clicked.connect(callable.bind(tent))
+	var encounter_data = load("res://encounters/FirstEncounter.gd").new()
+	tent.clicked.connect(callable.bind(encounter_data))

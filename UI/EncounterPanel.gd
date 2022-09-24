@@ -8,7 +8,6 @@ signal draw_button_pressed
 
 func _ready() -> void:
 	print("ENCOUNTER PANEL ready.")
-	card.TEST()
 
 
 func update_encounter(event : Dictionary) -> void:

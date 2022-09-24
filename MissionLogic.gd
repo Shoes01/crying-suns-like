@@ -21,11 +21,15 @@ var mission : Mission
 var chosen_strategy : String = "none"
 
 
-func _on_encounter_clicked(encounter) -> void:
+func _on_encounter_clicked(encounter : Encounter) -> void:
+	var event := {}
 	if chosen_strategy == "none":
 		return
 	else:
-		print("PREPARE FOR COMBAT! The color is " + str(encounter.color))
+		print("Prepare encounter.")
+		event["begin_encounter"] = true
+		event["new_encounter"] = encounter
+		UI_updated.emit(event)
 
 
 func _on_strategy_chosen(value: String) -> void:
