@@ -28,49 +28,64 @@ func update_unit(event: Dictionary) -> void:
 	var col = 1
 	var current_unit = player # PLACEHOLDER until I have more than one unit
 	# Populate soldiers.
-	col = 1
+	col = 0
 	for n in current_unit.soldier_count:
+		col += 1
 		var soldier_color = Color("medium sea green")
 		var texture_rect := IconInteractor.new(soldier_color)
 		texture_rect.set_texture(load("res://icon.png"))
 		if col <= 5:
 			var row = soldier_area.get_node("SoldierRow1")
+			row.set_size(Vector2(350, 64))
 			row.add_child(texture_rect)
 		elif col <=10:
 			var row = soldier_area.get_node("SoldierRow2")
+			row.set_size(Vector2(350, 64))
+			var panel_size = get_size()
+			set_size(panel_size + Vector2(65, 0))
 			row.add_child(texture_rect)
 		else:
 			print("TOO MANY SOLDIERS!!!")
 			var row = soldier_area.get_node("SoldierRow2")
 			row.add_child(texture_rect)
 	# Populate icons.
-	col = 1
+	col = 0
 	for icon in player.icons:
 		for quantity in player.icons[icon]:
+			col += 1
 			var texture_rect := IconInteractor.new(icon.color)
 			texture_rect.set_texture(load(icon.sprite_path))
 			if col <= 5:
 				var row = icon_area.get_node("IconRow1")
+				row.set_size(Vector2(350, 64))
 				row.add_child(texture_rect)
 			elif col <=10:
 				var row = icon_area.get_node("IconRow2")
+				row.set_size(Vector2(350, 64))
 				row.add_child(texture_rect)
+				var panel_size = get_size()
+				set_size(panel_size + Vector2(65, 0))
 			else:
 				print("TOO MANY ICONS!!!")
 				var row = icon_area.get_node("IconRow2")
 				row.add_child(texture_rect)
 	# Populate strategies.
-	col = 1
+	col = 0
 	for strategy in player.strategies:
 		for quantity in player.strategies[strategy]:
+			col += 1
 			var texture_rect := IconInteractor.new(strategy.color)
 			texture_rect.set_texture(load(strategy.sprite_path))
 			texture_rect.connect("clicked", Callable(self, "_emit_strat_signal"))
 			if col <= 5:
 				var row = strategy_area.get_node("StrategyRow1")
+				row.set_size(Vector2(350, 64))
 				row.add_child(texture_rect)
 			elif col <=10:
 				var row = strategy_area.get_node("StrategyRow2")
+				row.set_size(Vector2(350, 64))
+				var panel_size = get_size()
+				set_size(panel_size + Vector2(65, 0))
 				row.add_child(texture_rect)
 			else:
 				print("TOO MANY STRATEGIES!!!")
