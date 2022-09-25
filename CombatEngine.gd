@@ -7,6 +7,12 @@ func _ready() -> void:
 
 
 func build_deck(encounter : Encounter, strategy : Strategy) -> Array:
+	# TODO
+	# Choose a subset of cards from encounter and strategy.
+	# Size of subset dictated by encounter/strat
+	# The encounter cards and strategy cards are mixed together, but the strategy cards should be drawn in order.
+	## ie the first strategy card drawn is SomeStrat_1. The second is SomeStrat_2. 
+	
 	var deck : Array
 	
 	deck = encounter.cards + strategy.cards

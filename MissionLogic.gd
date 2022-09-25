@@ -45,11 +45,10 @@ func _on_draw_button_pressed() -> void:
 	
 	# Check to see if the deck is empty.
 	if combat_deck.size() == 0:
-		# Strategy is completed!
-		
-		# TODO : now what??????????
-		
-		pass
+		event["deck_empty"] = true
+		UI_updated.emit(event)
+		chosen_strategy = null
+		combat_deck = []
 
 
 func _draw_new_card() -> void:

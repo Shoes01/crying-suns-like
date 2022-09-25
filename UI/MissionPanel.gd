@@ -14,6 +14,8 @@ func _on_UI_updated(event : Dictionary) -> void:
 		_update_log(event["log_entry"])
 	if event.has("new_encounter"):
 		set_visible(true)
+	if event.has("deck_empty"):
+		set_visible(false)
 	# Update sub-mission UI.
 	encounter.update_encounter(event)
 
