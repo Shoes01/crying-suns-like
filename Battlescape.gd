@@ -4,12 +4,17 @@ extends Node
 @onready var mission_logic: Node = $MissionLogic
 @onready var mission_UI: Node = $MissionPanel
 @onready var player_UI: Node = $PlayerPanel
+@onready var hud_UI: Node = $HUDPanel
 
 
 func _ready() -> void:
 	# Connect signals.
+	## UI to Logic signals.
 	mission_UI.encounter.draw_button_pressed.connect(Callable(mission_logic, "_on_draw_button_pressed"))
 	player_UI.unit.strategy_chosen.connect(Callable(mission_logic, "_on_strategy_chosen"))
+	get_node("HUDPanel/VBoxContainer/EngageButton").pressed.connect(Callable(mission_logic, "_on_engage_pressed"))
+	### There is another signal further down in the first-time stuff.
+	## Logic to UI signals.
 	mission_logic.UI_updated.connect(Callable(mission_UI, "_on_UI_updated"))
 	mission_logic.UI_updated.connect(Callable(player_UI, "_on_UI_updated"))
 	
@@ -26,6 +31,6 @@ func _ready() -> void:
 	children = get_node("Tools/MissionGenerator").generate(mission)
 	for child in children:
 		get_node("MissionArea").add_child(child)
-		var callable = Callable(mission_logic, "_on_encounter_clicked")
-		child.clicked.connect(callable.bind(child.encounter_data))
+		var callable = Callable(mission_logic, "_on_encounter_pressed")
+		child.pressed.connect(callable.bind(child.encounter_data))
 

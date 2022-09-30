@@ -78,7 +78,7 @@ func update_unit(event: Dictionary) -> void:
 		for quantity in player.strategies[strategy]:
 			col += 1
 			var texture_rect := IconButton.new(strategy.sprite_path, strategy.color)
-			texture_rect.connect("clicked", Callable(self, "_emit_strat_signal").bind(strategy))
+			texture_rect.connect("pressed", Callable(self, "_emit_strat_signal").bind(strategy))
 			texture_rect.set_button_group(all_icons)
 			if col <= 5:
 				var row = strategy_area.get_node("StrategyRow1")

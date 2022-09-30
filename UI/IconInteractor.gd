@@ -1,10 +1,7 @@
 class_name IconButton
 extends TextureButton
 
-signal clicked
-
 var color : Color
-var is_clicked : bool = false
 var encounter_data : Encounter
 
 
@@ -14,8 +11,6 @@ func _init(base_sprite_path := "res://icon.png", base_color := Color("white")) -
 
 
 func _ready() -> void:
-	connect("clicked", Callable(self, "_on_clicked"))
-	
 	set_modulate(color)
 	set_toggle_mode(true)
 
@@ -27,9 +22,4 @@ func _process(delta : float) -> void:
 		set_modulate(Color("yellow"))
 	else:
 		set_modulate(color)
-
-
-func _on_clicked() -> void:
-	clicked.emit()
-
 

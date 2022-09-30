@@ -30,3 +30,32 @@ script = ExtResource("5_556ya")
 
 [node name="MissionGenerator" type="Node" parent="Tools"]
 script = ExtResource("8_e36qi")
+
+[node name="HUDPanel" type="Panel" parent="."]
+offset_left = 388.0
+offset_top = 460.0
+offset_right = 705.0
+offset_bottom = 623.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUDPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EngageButton" type="Button" parent="HUDPanel/VBoxContainer"]
+layout_mode = 2
+offset_right = 317.0
+offset_bottom = 79.0
+size_flags_vertical = 3
+text = "ENGAGE"
+
+[node name="EndTurnButton" type="Button" parent="HUDPanel/VBoxContainer"]
+layout_mode = 2
+offset_top = 83.0
+offset_right = 317.0
+offset_bottom = 163.0
+size_flags_vertical = 3
+text = "END TURN"

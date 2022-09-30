@@ -10,26 +10,29 @@ var mission_counter := 1
 @onready var combat_engine = get_node("CombatEngine")
 var player : Player
 var chosen_strategy : Strategy
+var chosen_encounter : Encounter
 var combat_deck : Array
 
 func prepare_player(new_player : Player) -> void:
 	player = new_player
 
-# Related to a signal.
-func _on_encounter_clicked(encounter : Encounter) -> void:
-	var event := {}
-	if chosen_strategy:
-		print("Prepare encounter.")
-		print(chosen_strategy.title) # TEST PRINT
-		event["new_encounter"] = encounter
-		combat_deck = combat_engine.build_deck(encounter, chosen_strategy)
-		UI_updated.emit(event)
 
-# Related to a signal.
+func _on_encounter_pressed(encounter : Encounter) -> void:
+	chosen_encounter = encounter
+
+
 func _on_strategy_chosen(value: Strategy) -> void:
 	chosen_strategy = value
 
-# Related to a signal.
+
+func _on_engage_pressed() -> void:
+	if !chosen_strategy or !chosen_encounter: return
+	var event := {}
+	event["new_encounter"] = chosen_encounter
+	combat_deck = combat_engine.build_deck(chosen_encounter, chosen_strategy)
+	UI_updated.emit(event)
+
+
 func _on_draw_button_pressed() -> void:
 	_draw_new_card()
 	_fight_the_new_card()
