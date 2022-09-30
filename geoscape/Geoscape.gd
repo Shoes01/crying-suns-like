@@ -12,8 +12,8 @@ var is_mission_ready := false
 var mission_embarked_this_turn := false
 var turn : int = Global.turn_count
 
-var SATCOM_buttons : ButtonGroup = ButtonGroup.new()
-var XCOM_buttons : ButtonGroup = ButtonGroup.new()
+var SATCOM_buttons := ButtonGroup.new()
+var XCOM_buttons := ButtonGroup.new()
 
 
 func _ready() -> void:

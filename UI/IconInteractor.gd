@@ -1,7 +1,6 @@
 class_name IconButton
 extends TextureButton
 
-
 signal clicked
 
 var color : Color
@@ -15,28 +14,22 @@ func _init(base_sprite_path := "res://icon.png", base_color := Color("white")) -
 
 
 func _ready() -> void:
-	connect("gui_input", Callable(self, "_on_texture_rect_gui_input"))
-	connect("mouse_entered", Callable(self, "_on_texture_rect_mouse_entered"))
-	connect("mouse_exited", Callable(self, "_on_texture_rect_mouse_exited"))
+	connect("clicked", Callable(self, "_on_clicked"))
 	
-	set_modulate(Color(color))
+	set_modulate(color)
+	set_toggle_mode(true)
 
 
-func _on_texture_rect_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		if event.pressed:
-			is_clicked = !is_clicked # toggle clicked state
-			if is_clicked: set_modulate(Color("green"))
-			else: set_modulate(Color("yellow"))
-			clicked.emit()
-
-
-func _on_texture_rect_mouse_entered() -> void:
-	if !is_clicked:
+func _process(delta : float) -> void:
+	if is_pressed():
+		set_modulate(Color("green"))
+	elif is_hovered():
 		set_modulate(Color("yellow"))
+	else:
+		set_modulate(color)
 
 
-func _on_texture_rect_mouse_exited() -> void:
-	if !is_clicked:
-		set_modulate(Color(color))
+func _on_clicked() -> void:
+	clicked.emit()
+
 

@@ -4,6 +4,9 @@ extends Panel
 signal strategy_chosen(strategy)
 
 
+var all_icons := ButtonGroup.new()
+
+
 func update_unit(event: Dictionary) -> void:
 	var player
 	if event.has("player_hack"):
@@ -33,6 +36,7 @@ func update_unit(event: Dictionary) -> void:
 		col += 1
 		var soldier_color = Color("medium sea green")
 		var texture_rect := IconButton.new("res://icon.png", soldier_color)
+		texture_rect.set_button_group(all_icons)
 		if col <= 5:
 			var row = soldier_area.get_node("SoldierRow1")
 			row.set_size(Vector2(350, 64))
@@ -53,6 +57,7 @@ func update_unit(event: Dictionary) -> void:
 		for quantity in player.icons[icon]:
 			col += 1
 			var texture_rect := IconButton.new(icon.sprite_path, icon.color)
+			texture_rect.set_button_group(all_icons)
 			if col <= 5:
 				var row = icon_area.get_node("IconRow1")
 				row.set_size(Vector2(350, 64))
@@ -74,6 +79,7 @@ func update_unit(event: Dictionary) -> void:
 			col += 1
 			var texture_rect := IconButton.new(strategy.sprite_path, strategy.color)
 			texture_rect.connect("clicked", Callable(self, "_emit_strat_signal").bind(strategy))
+			texture_rect.set_button_group(all_icons)
 			if col <= 5:
 				var row = strategy_area.get_node("StrategyRow1")
 				row.set_size(Vector2(350, 64))
