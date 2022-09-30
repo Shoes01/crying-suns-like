@@ -32,8 +32,7 @@ func update_unit(event: Dictionary) -> void:
 	for n in current_unit.soldier_count:
 		col += 1
 		var soldier_color = Color("medium sea green")
-		var texture_rect := IconInteractor.new(soldier_color)
-		texture_rect.set_texture(load("res://icon.png"))
+		var texture_rect := IconButton.new("res://icon.png", soldier_color)
 		if col <= 5:
 			var row = soldier_area.get_node("SoldierRow1")
 			row.set_size(Vector2(350, 64))
@@ -53,8 +52,7 @@ func update_unit(event: Dictionary) -> void:
 	for icon in player.icons:
 		for quantity in player.icons[icon]:
 			col += 1
-			var texture_rect := IconInteractor.new(icon.color)
-			texture_rect.set_texture(load(icon.sprite_path))
+			var texture_rect := IconButton.new(icon.sprite_path, icon.color)
 			if col <= 5:
 				var row = icon_area.get_node("IconRow1")
 				row.set_size(Vector2(350, 64))
@@ -74,8 +72,7 @@ func update_unit(event: Dictionary) -> void:
 	for strategy in player.strategies:
 		for quantity in player.strategies[strategy]:
 			col += 1
-			var texture_rect := IconInteractor.new(strategy.color)
-			texture_rect.set_texture(load(strategy.sprite_path))
+			var texture_rect := IconButton.new(strategy.sprite_path, strategy.color)
 			texture_rect.connect("clicked", Callable(self, "_emit_strat_signal").bind(strategy))
 			if col <= 5:
 				var row = strategy_area.get_node("StrategyRow1")

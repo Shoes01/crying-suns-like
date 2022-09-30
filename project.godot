@@ -49,8 +49,8 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://icons/BaseIcon.gd"
 }, {
-"base": "TextureRect",
-"class": &"IconInteractor",
+"base": "TextureButton",
+"class": &"IconButton",
 "language": &"GDScript",
 "path": "res://UI/IconInteractor.gd"
 }, {
@@ -103,7 +103,7 @@ _global_script_class_icons={
 "Encounter": "",
 "FirstEncounter": "",
 "Icon": "",
-"IconInteractor": "",
+"IconButton": "",
 "Mission": "",
 "MissionGenerator": "",
 "NewMission": "",

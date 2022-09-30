@@ -1,10 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://x41id1f7qke8"]
 
 [ext_resource type="Script" path="res://UI/IconInteractor.gd" id="1_8vgq4"]
-[ext_resource type="Texture2D" uid="uid://di15ddqt34n3c" path="res://icon.png" id="1_lljsw"]
+[ext_resource type="Texture2D" uid="uid://di15ddqt34n3c" path="res://icon.png" id="1_inxci"]
 
-[node name="TextureRect" type="TextureRect"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_lljsw")
+[node name="IconButton" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1088.0
+offset_bottom = -584.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_inxci")
 script = ExtResource("1_8vgq4")
