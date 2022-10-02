@@ -1,14 +1,11 @@
 extends Panel
 
-@onready var encounter = $VBoxContainer/EncounterPanel
-@onready var log_node = $VBoxContainer/LogScroll/LogText
+
+@onready var encounter := $VBoxContainer/EncounterPanel
+@onready var log_node := $VBoxContainer/LogScroll/LogText
 
 
-func _ready() -> void:
-	print("MISSION PANEL ready.")
-
-
-func _on_UI_updated(event : Dictionary) -> void:
+func _on_UI_updated(event: Dictionary) -> void:
 	# Update mission-related UI.
 	if event.has("log_entry"): 
 		_update_log(event["log_entry"])
@@ -20,9 +17,9 @@ func _on_UI_updated(event : Dictionary) -> void:
 	encounter.update_encounter(event)
 
 
-func _update_log(log_entry : Dictionary) -> void:
-	var log_text = log_node.get_text()
-	var new_text : String = ""
+func _update_log(log_entry: Dictionary) -> void:
+	var log_text: String = log_node.get_text()
+	var new_text := ""
 	# In case of a new mission.
 	if log_entry.has("new_mission"):
 		log_node.set_text("NEW MISSION")

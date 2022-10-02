@@ -1,19 +1,12 @@
 class_name Player
 extends Node
 
-var soldier_count = 4
-var loot = 0
 
-var icons = {Icons.open_fire: 4, Icons.take_cover: 4}
-var strategies = {Strategies.waiting: 1, Strategies.starter: 1}
+var soldier_count := 4
+var loot := 0
 
-
-func _ready() -> void:
-	print("Player ready.")
-
-
-func _test() -> void:
-	print("TESTESTSET")
+var icons := {Icons.open_fire: 4, Icons.take_cover: 4}
+var strategies := {Strategies.waiting: 1, Strategies.starter: 1}
 
 
 func is_dead() -> bool:

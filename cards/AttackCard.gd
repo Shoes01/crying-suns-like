@@ -1,5 +1,5 @@
-class_name AttackCard
 extends Card
+
 
 func _init() -> void:
 	title = "Vulnerable position"

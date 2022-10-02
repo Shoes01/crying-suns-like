@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://CombatEngine.gd" id="5_556ya"]
 [ext_resource type="Script" path="res://battlescape/MissionGenerator.gd" id="8_e36qi"]
 
-[node name="Mission" type="Node"]
+[node name="Battlescape" type="Node"]
 script = ExtResource("1_bbemf")
 
 [node name="PlayerPanel" parent="." instance=ExtResource("2_2qqws")]
@@ -17,19 +17,6 @@ visible = false
 offset_left = 750.0
 offset_right = 1150.0
 offset_bottom = 650.0
-
-[node name="MissionArea" type="Node2D" parent="."]
-
-[node name="MissionLogic" type="Node" parent="."]
-script = ExtResource("4_ouejo")
-
-[node name="CombatEngine" type="Node" parent="MissionLogic"]
-script = ExtResource("5_556ya")
-
-[node name="Tools" type="Node" parent="."]
-
-[node name="MissionGenerator" type="Node" parent="Tools"]
-script = ExtResource("8_e36qi")
 
 [node name="HUDPanel" type="Panel" parent="."]
 offset_left = 388.0
@@ -59,3 +46,16 @@ offset_right = 317.0
 offset_bottom = 163.0
 size_flags_vertical = 3
 text = "END TURN"
+
+[node name="MissionArea" type="Node2D" parent="."]
+
+[node name="MissionLogic" type="Node" parent="."]
+script = ExtResource("4_ouejo")
+
+[node name="CombatEngine" type="Node" parent="MissionLogic"]
+script = ExtResource("5_556ya")
+
+[node name="Tools" type="Node" parent="."]
+
+[node name="MissionGenerator" type="Node" parent="Tools"]
+script = ExtResource("8_e36qi")

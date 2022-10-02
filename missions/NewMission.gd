@@ -1,5 +1,5 @@
-class_name NewMission
 extends Mission
+
 
 func _init() -> void:
 	title = "Test Mission"

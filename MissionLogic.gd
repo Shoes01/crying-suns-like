@@ -1,5 +1,6 @@
 extends Node
 
+
 signal UI_updated(event)
 
 var battle_counter := 0
@@ -7,17 +8,15 @@ var card_counter := 0
 var encounter_counter := 0
 var mission_counter := 1
 
-@onready var combat_engine = get_node("CombatEngine")
-var player : Player
-var chosen_strategy : Strategy
-var chosen_encounter : Encounter
-var combat_deck : Array
+var player: Player
+var chosen_strategy: Strategy
+var chosen_encounter: Encounter
+var combat_deck: Array
 
-func prepare_player(new_player : Player) -> void:
-	player = new_player
+@onready var combat_engine := get_node("CombatEngine")
 
 
-func _on_encounter_pressed(encounter : Encounter) -> void:
+func _on_encounter_pressed(encounter: Encounter) -> void:
 	chosen_encounter = encounter
 
 
@@ -65,7 +64,7 @@ func _draw_new_card() -> void:
 func _fight_the_new_card() -> void:
 	var event := {}
 	# Determine the outcome of the card.
-	var success : bool = combat_engine.card_vs_unit(combat_deck[0], player)
+	var success: bool = combat_engine.card_vs_unit(combat_deck[0], player)
 	# Crude method of tracking progress. TODO : Use this for the log.
 	battle_counter += 1
 	# Log the event.
@@ -85,4 +84,8 @@ func _check_player() -> void:
 	if player.soldier_count <= 0:
 		get_tree().change_scene_to_file("res://GameOver.tscn")
 		Global.game_state = "DEFEAT"
+
+
+func prepare_player(new_player : Player) -> void:
+	player = new_player
 

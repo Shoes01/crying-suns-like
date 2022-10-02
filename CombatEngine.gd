@@ -2,18 +2,14 @@ class_name CombatEngine
 extends Node
 
 
-func _ready() -> void:
-	print(name, " is ready.")
-
-
-func build_deck(encounter : Encounter, strategy : Strategy) -> Array:
-	# TODO
+func build_deck(encounter: Encounter, strategy: Strategy) -> Array:
+	# TODO:
 	# Choose a subset of cards from encounter and strategy.
 	# Size of subset dictated by encounter/strat
 	# The encounter cards and strategy cards are mixed together, but the strategy cards should be drawn in order.
 	## ie the first strategy card drawn is SomeStrat_1. The second is SomeStrat_2. 
 	
-	var deck : Array
+	var deck: Array
 	
 	deck = encounter.cards + strategy.cards
 	deck.shuffle()
@@ -21,16 +17,17 @@ func build_deck(encounter : Encounter, strategy : Strategy) -> Array:
 	return deck
 
 
-func card_vs_unit(card, unit) -> bool:
-	var success : bool = true
+# PLACEHOLDER: unit does not have a proper type yet.
+func card_vs_unit(card: Card, unit: Player) -> bool:
+	var success := true
 	# Loop through all the icons on the card.
 	for icon in card.icons:
 		# Establish how many of this icon are on the card and on the unit.
-		var number_of_card_icons = card.icons[icon]
+		var number_of_card_icons: int = card.icons[icon]
 		var number_of_unit_icons := 0
 		if unit.icons.has(icon):
 			number_of_unit_icons = unit.icons[icon]
-		var icon_difference = number_of_card_icons - number_of_unit_icons
+		var icon_difference := number_of_card_icons - number_of_unit_icons
 		# The card has more icons.
 		if icon_difference > 0:
 			success = false

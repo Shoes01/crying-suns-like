@@ -1,8 +1,8 @@
 extends Node
 
 
-var starter : Node
-var waiting : Node
+var starter: Node
+var waiting: Node
 
 
 func _init() -> void:

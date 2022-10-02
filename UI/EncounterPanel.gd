@@ -1,16 +1,13 @@
 extends Panel
 
+
 signal draw_button_pressed
 
-@onready var card = $VBoxContainer/CardPanel
-@onready var encounter_title = $VBoxContainer/EncounterTitle
+@onready var card := $VBoxContainer/CardPanel
+@onready var encounter_title := $VBoxContainer/EncounterTitle
 
 
-func _ready() -> void:
-	print("ENCOUNTER PANEL ready.")
-
-
-func update_encounter(event : Dictionary) -> void:
+func update_encounter(event: Dictionary) -> void:
 	if event.has("new_encounter"):
 		_update_encounter_panel(event["new_encounter"])
 	
@@ -18,9 +15,8 @@ func update_encounter(event : Dictionary) -> void:
 
 
 func _on_draw_button_pressed() -> void:
-	print("BUTTON PRESSED")
 	emit_signal("draw_button_pressed")
 
 
-func _update_encounter_panel(new_encounter : Encounter) -> void:
+func _update_encounter_panel(new_encounter: Encounter) -> void:
 	encounter_title.set_text(new_encounter.title)

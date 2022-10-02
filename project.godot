@@ -9,11 +9,6 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "Card",
-"class": &"AttackCard",
-"language": &"GDScript",
-"path": "res://cards/AttackCard.gd"
-}, {
 "base": "Node",
 "class": &"Card",
 "language": &"GDScript",
@@ -29,20 +24,10 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://CombatEngine.gd"
 }, {
-"base": "Card",
-"class": &"DefenseCard",
-"language": &"GDScript",
-"path": "res://cards/DefenseCard.gd"
-}, {
 "base": "Node",
 "class": &"Encounter",
 "language": &"GDScript",
 "path": "res://encounters/BaseEncounter.gd"
-}, {
-"base": "Encounter",
-"class": &"FirstEncounter",
-"language": &"GDScript",
-"path": "res://encounters/FirstEncounter.gd"
 }, {
 "base": "Node",
 "class": &"Icon",
@@ -64,54 +49,27 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://battlescape/MissionGenerator.gd"
 }, {
-"base": "Mission",
-"class": &"NewMission",
-"language": &"GDScript",
-"path": "res://missions/NewMission.gd"
-}, {
-"base": "Icon",
-"class": &"OpenFireIcon",
-"language": &"GDScript",
-"path": "res://icons/OpenFireIcon.gd"
-}, {
 "base": "Node",
 "class": &"Player",
 "language": &"GDScript",
 "path": "res://Player.gd"
 }, {
-"base": "Encounter",
-"class": &"SecondEncounter",
-"language": &"GDScript",
-"path": "res://encounters/SecondEncounter.gd"
-}, {
 "base": "Node",
 "class": &"Strategy",
 "language": &"GDScript",
 "path": "res://strategies/BaseStrategy.gd"
-}, {
-"base": "Icon",
-"class": &"TakeCoverIcon",
-"language": &"GDScript",
-"path": "res://icons/TakeCoverIcon.gd"
 }]
 _global_script_class_icons={
-"AttackCard": "",
 "Card": "",
 "CardPanel": "",
 "CombatEngine": "",
-"DefenseCard": "",
 "Encounter": "",
-"FirstEncounter": "",
 "Icon": "",
 "IconButton": "",
 "Mission": "",
 "MissionGenerator": "",
-"NewMission": "",
-"OpenFireIcon": "",
 "Player": "",
-"SecondEncounter": "",
-"Strategy": "",
-"TakeCoverIcon": ""
+"Strategy": ""
 }
 
 [application]

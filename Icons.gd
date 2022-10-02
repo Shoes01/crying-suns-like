@@ -1,8 +1,8 @@
 extends Node
 
 
-var open_fire : Node
-var take_cover : Node
+var open_fire: Node
+var take_cover: Node
 
 
 func _init() -> void:

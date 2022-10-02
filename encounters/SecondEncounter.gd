@@ -1,5 +1,5 @@
-class_name SecondEncounter
 extends Encounter
+
 
 func _init() -> void:
 	title = "Second Encounter"

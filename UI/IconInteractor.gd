@@ -1,8 +1,9 @@
 class_name IconButton
 extends TextureButton
 
-var color : Color
-var encounter_data : Encounter
+
+var color: Color
+var encounter_data: Encounter
 
 
 func _init(base_sprite_path := "res://icon.png", base_color := Color("white")) -> void:
@@ -15,7 +16,7 @@ func _ready() -> void:
 	set_toggle_mode(true)
 
 
-func _process(delta : float) -> void:
+func _process(delta: float) -> void:
 	if is_pressed():
 		set_modulate(Color("green"))
 	elif is_hovered():

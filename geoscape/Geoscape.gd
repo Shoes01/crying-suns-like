@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @onready var idle_button = get_node("Panel/VBoxContainer/HBoxContainer/SATCOM/IdleButton")
 @onready var scan_button = get_node("Panel/VBoxContainer/HBoxContainer/SATCOM/ScanButton")
 @onready var rest_button = get_node("Panel/VBoxContainer/HBoxContainer/XCOM/RestButton")
@@ -10,7 +11,7 @@ extends Node2D
 
 var is_mission_ready := false
 var mission_embarked_this_turn := false
-var turn : int = Global.turn_count
+var turn: int = Global.turn_count
 
 var SATCOM_buttons := ButtonGroup.new()
 var XCOM_buttons := ButtonGroup.new()

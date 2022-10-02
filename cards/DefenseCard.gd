@@ -1,5 +1,5 @@
-class_name DefenseCard
 extends Card
+
 
 func _init() -> void:
 	title = "Sweeping Fire"
