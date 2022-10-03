@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://NewGame.tscn")
+	get_tree().change_scene_to_file("res://otherscape/NewGame.tscn")
 	Global.game_state = "NEW_GAME"
 
 

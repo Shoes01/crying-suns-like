@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://x41id1f7qke8"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://UI/IconInteractor.gd" id="1_8vgq4"]
+[ext_resource type="Script" path="res://battlescape/UI/IconInteractor.gd" id="1_8vgq4"]
 [ext_resource type="Texture2D" uid="uid://di15ddqt34n3c" path="res://icon.png" id="1_inxci"]
 
 [node name="IconButton" type="TextureButton"]

@@ -82,7 +82,7 @@ func _check_player() -> void:
 	# Check if the player has any soldiers remaining.
 	# NOTE: This will be replaced once units are a thing.
 	if player.soldier_count <= 0:
-		get_tree().change_scene_to_file("res://GameOver.tscn")
+		get_tree().change_scene_to_file("res://otherscape/GameOver.tscn")
 		Global.game_state = "DEFEAT"
 
 

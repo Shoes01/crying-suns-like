@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxaah4p7hmp65"]
+[gd_scene load_steps=2 format=3 uid="uid://c7g7os8l2c7cn"]
 
-[ext_resource type="Script" path="res://NewGame.gd" id="1_4xrta"]
+[ext_resource type="Script" path="res://otherscape/NewGame.gd" id="1_4xrta"]
 
 [node name="NewGame" type="Node2D"]
 script = ExtResource("1_4xrta")
@@ -10,6 +10,8 @@ offset_right = 281.0
 offset_bottom = 117.0
 
 [node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0

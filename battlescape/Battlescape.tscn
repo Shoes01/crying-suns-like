@@ -1,18 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://2tdnnjghtevv"]
+[gd_scene load_steps=7 format=3 uid="uid://br01iufnrkpss"]
 
-[ext_resource type="Script" path="res://Battlescape.gd" id="1_bbemf"]
-[ext_resource type="PackedScene" uid="uid://by7tvqa1ig7o6" path="res://UI/PlayerPanel.tscn" id="2_2qqws"]
-[ext_resource type="PackedScene" uid="uid://c0apjgiwt8qa4" path="res://UI/MissionPanel.tscn" id="3_l18pc"]
-[ext_resource type="Script" path="res://MissionLogic.gd" id="4_ouejo"]
-[ext_resource type="Script" path="res://CombatEngine.gd" id="5_556ya"]
-[ext_resource type="Script" path="res://battlescape/MissionGenerator.gd" id="8_e36qi"]
+[ext_resource type="Script" path="res://battlescape/Battlescape.gd" id="1_v5pns"]
+[ext_resource type="PackedScene" path="res://battlescape/UI/PlayerPanel.tscn" id="2_uqp2m"]
+[ext_resource type="PackedScene" path="res://battlescape/UI/MissionPanel.tscn" id="3_q74yj"]
+[ext_resource type="Script" path="res://battlescape/MissionLogic.gd" id="4_w17r6"]
+[ext_resource type="Script" path="res://battlescape/CombatEngine.gd" id="5_ynvgg"]
+[ext_resource type="Script" path="res://battlescape/MissionGenerator.gd" id="6_crbri"]
 
 [node name="Battlescape" type="Node"]
-script = ExtResource("1_bbemf")
+script = ExtResource("1_v5pns")
 
-[node name="PlayerPanel" parent="." instance=ExtResource("2_2qqws")]
+[node name="PlayerPanel" parent="." instance=ExtResource("2_uqp2m")]
 
-[node name="MissionPanel" parent="." instance=ExtResource("3_l18pc")]
+[node name="MissionPanel" parent="." instance=ExtResource("3_q74yj")]
 visible = false
 offset_left = 750.0
 offset_right = 1150.0
@@ -50,12 +50,12 @@ text = "END TURN"
 [node name="MissionArea" type="Node2D" parent="."]
 
 [node name="MissionLogic" type="Node" parent="."]
-script = ExtResource("4_ouejo")
+script = ExtResource("4_w17r6")
 
 [node name="CombatEngine" type="Node" parent="MissionLogic"]
-script = ExtResource("5_556ya")
+script = ExtResource("5_ynvgg")
 
 [node name="Tools" type="Node" parent="."]
 
 [node name="MissionGenerator" type="Node" parent="Tools"]
-script = ExtResource("8_e36qi")
+script = ExtResource("6_crbri")

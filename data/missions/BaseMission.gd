@@ -8,8 +8,8 @@ var encounters : Array
 var was_attempted := false
 var was_succesful := false
 
-var first_encounter := load("res://encounters/FirstEncounter.gd")
-var second_encounter := load("res://encounters/SecondEncounter.gd")
+var first_encounter := load("res://data/encounters/FirstEncounter.gd")
+var second_encounter := load("res://data/encounters/SecondEncounter.gd")
 
 
 func set_success(value: bool) -> void:

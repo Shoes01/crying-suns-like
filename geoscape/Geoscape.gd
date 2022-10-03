@@ -108,4 +108,4 @@ func _on_confirm_button_pressed():
 	embark_button.set_pressed(false)
 	
 	Global.turn_count = turn
-	get_tree().change_scene_to_file("res://Battlescape.tscn")
+	get_tree().change_scene_to_file("res://battlescape/Battlescape.tscn")

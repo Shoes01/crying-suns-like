@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://by7tvqa1ig7o6"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://UI/PlayerPanel.gd" id="1_0ft6x"]
-[ext_resource type="PackedScene" uid="uid://cudtcnhf3xyab" path="res://UI/UnitPanel.tscn" id="1_hokwi"]
+[ext_resource type="Script" path="res://battlescape/UI/PlayerPanel.gd" id="1_0ft6x"]
+[ext_resource type="PackedScene" path="res://battlescape/UI/UnitPanel.tscn" id="1_hokwi"]
 
 [node name="PlayerPanel" type="Panel"]
 offset_right = 350.0

@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dok2n1wg3fwuq"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://UI/CardPanel.gd" id="1_aljor"]
+[ext_resource type="Script" path="res://battlescape/UI/CardPanel.gd" id="1_aljor"]
 
 [node name="CardPanel" type="Panel"]
 offset_right = 350.0

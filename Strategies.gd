@@ -1,3 +1,4 @@
+# AUTOLOADED.
 extends Node
 
 
@@ -6,5 +7,5 @@ var waiting: Node
 
 
 func _init() -> void:
-	starter = load("res://strategies/StarterStrategy.gd").new()
-	waiting = load("res://strategies/WaitStrategy.gd").new()
+	starter = load("res://data/strategies/StarterStrategy.gd").new()
+	waiting = load("res://data/strategies/WaitStrategy.gd").new()

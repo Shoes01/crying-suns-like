@@ -19,12 +19,12 @@ func _ready() -> void:
 	mission_logic.UI_updated.connect(Callable(player_UI, "_on_UI_updated"))
 	
 	# Send data to MissionLogic.
-	var player: Player = load("res://Player.gd").new() 					# PLACEHOLDER until the Battlescape can be properly invoked by the Geoscape.
+	var player: Player = load("res://data/Player.gd").new() 					# PLACEHOLDER until the Battlescape can be properly invoked by the Geoscape.
 	mission_logic.prepare_player(player)
 	player_UI.unit.update_unit({"player_hack": player}) # PLACERHOLDER until the player has proper units.
 	
 	# Mapgen.
-	var mission: Mission = load("res://missions/NewMission.gd").new() 	# PLACEHOLDER until battlescape etc.
+	var mission: Mission = load("res://data/missions/NewMission.gd").new() 	# PLACEHOLDER until battlescape etc.
 	var children: Array
 	children = get_node("Tools/MissionGenerator").generate(mission)
 	for child in children:
