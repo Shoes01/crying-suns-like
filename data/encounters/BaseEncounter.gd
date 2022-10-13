@@ -13,6 +13,9 @@ var attack_card := load("res://data/cards/AttackCard.gd")
 var defense_card := load("res://data/cards/DefenseCard.gd")
 var bonus_card := load("res://data/cards/BonusCard.gd")
 
+var icon_progress := {}  # Used to track which icons were beat.
+var win_conditions := {}
+
 
 func set_success(value: bool) -> void:
 	was_succesful = value

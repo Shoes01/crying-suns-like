@@ -18,8 +18,8 @@ func build_deck(encounter: Encounter, strategy: Strategy) -> Array:
 
 
 # PLACEHOLDER: unit does not have a proper type yet.
-func card_vs_unit(card: Card, unit: Player) -> bool:
-	var success := true
+func card_vs_unit(card: Card, unit: Player) -> Dictionary:
+	var results := {}
 	# Loop through all the icons on the card.
 	for icon in card.icons:
 		# Establish how many of this icon are on the card and on the unit.
@@ -30,7 +30,7 @@ func card_vs_unit(card: Card, unit: Player) -> bool:
 		var icon_difference := number_of_card_icons - number_of_unit_icons
 		# The card has more icons.
 		if icon_difference > 0:
-			success = false
+			results["card_was_beaten"] = false #success = false
 			# The unit wins for each icon they have.
 			# And they lose the difference.
 			for n in number_of_unit_icons:
@@ -41,10 +41,18 @@ func card_vs_unit(card: Card, unit: Player) -> bool:
 		else:
 			# The unit wins as many icons as there are on the card.
 			# There are no losses.
+			results["card_was_beaten"] = true 
 			for n in number_of_card_icons:
 				battle_rewards(unit, icon)
+		# Calculate how many icons were beaten.
+		var number_of_icons_beaten := 0
+		if number_of_card_icons > number_of_unit_icons:
+			number_of_icons_beaten = number_of_unit_icons
+		else:
+			number_of_icons_beaten = number_of_card_icons
+		results[icon] = number_of_icons_beaten
 		
-	return success
+	return results
 
 
 func battle_rewards(unit, icon) -> void:

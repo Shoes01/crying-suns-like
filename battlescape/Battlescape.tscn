@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://battlescape/Battlescape.gd" id="1_v5pns"]
 [ext_resource type="PackedScene" path="res://battlescape/UI/PlayerPanel.tscn" id="2_uqp2m"]
-[ext_resource type="PackedScene" path="res://battlescape/UI/MissionPanel.tscn" id="3_q74yj"]
+[ext_resource type="PackedScene" uid="uid://dxoxygg0vlkkg" path="res://battlescape/UI/MissionPanel.tscn" id="3_q74yj"]
 [ext_resource type="Script" path="res://battlescape/MissionLogic.gd" id="4_w17r6"]
 [ext_resource type="Script" path="res://battlescape/CombatEngine.gd" id="5_ynvgg"]
 [ext_resource type="Script" path="res://battlescape/MissionGenerator.gd" id="6_crbri"]

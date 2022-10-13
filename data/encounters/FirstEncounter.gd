@@ -7,3 +7,7 @@ func _init() -> void:
 	cards = [attack_card.new(), attack_card.new(), defense_card.new()]
 	sprite_path = "res://assets/Tent_SQUARE.svg"
 	color = Color("pale green")
+	
+	win_conditions = {
+		Icons.open_fire: 10,
+	}

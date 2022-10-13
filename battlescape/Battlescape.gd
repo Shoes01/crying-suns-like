@@ -17,6 +17,7 @@ func _ready() -> void:
 	## Logic to UI signals.
 	mission_logic.UI_updated.connect(Callable(mission_UI, "_on_UI_updated"))
 	mission_logic.UI_updated.connect(Callable(player_UI, "_on_UI_updated"))
+	mission_logic.UI_updated.connect(Callable(self, "_on_UI_updated")) # PLACEHOLDER kind of until MissionArea is more developped.
 	
 	# Send data to MissionLogic.
 	var player: Player = load("res://data/Player.gd").new() 					# PLACEHOLDER until the Battlescape can be properly invoked by the Geoscape.
@@ -33,3 +34,10 @@ func _ready() -> void:
 		var callable := Callable(mission_logic, "_on_encounter_pressed")
 		child.pressed.connect(callable.bind(child.encounter_data))
 
+
+func _on_UI_updated(event: Dictionary) -> void:
+	# Check if an Encounter has been beaten.
+	if event.has("encounter_was_beaten"): 
+		var beaten_encounter = event["encounter_was_beaten"]
+		print("Encounter beaten!")
+	
