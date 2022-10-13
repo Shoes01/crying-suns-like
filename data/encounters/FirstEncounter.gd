@@ -9,5 +9,5 @@ func _init() -> void:
 	color = Color("pale green")
 	
 	win_conditions = {
-		Icons.open_fire: 10,
+		Icons.open_fire: 1,
 	}

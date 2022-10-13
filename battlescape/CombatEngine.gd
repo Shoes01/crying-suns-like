@@ -60,7 +60,7 @@ func battle_rewards(unit, icon) -> void:
 		match key:
 			"loot": 
 				unit.loot += icon.rewards["loot"]
-				print("Awarded loot: " + str(icon.rewards["loot"]))
+				#print("Awarded loot: " + str(icon.rewards["loot"]))
 
 
 func battle_penalties(unit, icon) -> void:
@@ -68,4 +68,4 @@ func battle_penalties(unit, icon) -> void:
 		match key:
 			"soldier_damage": 
 				unit.soldier_count -= icon.penalties["soldier_damage"]
-				print("Soldiers damage: " + str(icon.penalties["soldier_damage"]))
+				#print("Soldiers damage: " + str(icon.penalties["soldier_damage"]))

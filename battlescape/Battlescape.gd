@@ -38,6 +38,9 @@ func _ready() -> void:
 func _on_UI_updated(event: Dictionary) -> void:
 	# Check if an Encounter has been beaten.
 	if event.has("encounter_was_beaten"): 
-		var beaten_encounter = event["encounter_was_beaten"]
 		print("Encounter beaten!")
-	
+		for child in get_node("MissionArea").get_children():
+			if child.encounter_data.title == event["encounter_was_beaten"].title:
+				child.set_disabled(true)
+		
+
