@@ -1,0 +1,82 @@
+[gd_scene load_steps=2 format=3 uid="uid://5n73hl04w5fo"]
+
+[ext_resource type="Script" path="res://battlescape/NewBattlescape.gd" id="1_qrtqq"]
+
+[node name="NewBattlescape" type="Node"]
+script = ExtResource("1_qrtqq")
+
+[node name="BoardLayer" type="CanvasLayer" parent="."]
+
+[node name="BoardArea" type="Node2D" parent="BoardLayer"]
+
+[node name="MenuLayer" type="CanvasLayer" parent="."]
+
+[node name="EncounterPanel" type="Panel" parent="MenuLayer"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -202.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuLayer/EncounterPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/EncounterPanel/ScrollContainer"]
+layout_mode = 2
+offset_right = 202.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="EncounterTitle" type="Label" parent="MenuLayer/EncounterPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 202.0
+offset_bottom = 26.0
+text = "Encounter Title"
+
+[node name="PlayerPanel" type="PanelContainer" parent="MenuLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -802.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuLayer/PlayerPanel"]
+layout_mode = 2
+offset_right = 350.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/PlayerPanel/ScrollContainer"]
+layout_mode = 2
+offset_right = 350.0
+offset_bottom = 650.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayerTitle" type="Label" parent="MenuLayer/PlayerPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 350.0
+offset_bottom = 323.0
+size_flags_vertical = 3
+text = "Player Title"
+
+[node name="PlayerData" type="Label" parent="MenuLayer/PlayerPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 327.0
+offset_right = 350.0
+offset_bottom = 650.0
+size_flags_vertical = 3
+text = "Player Data"

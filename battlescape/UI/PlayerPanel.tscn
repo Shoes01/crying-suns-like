@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://btj6a1kj11iai"]
 
 [ext_resource type="Script" path="res://battlescape/UI/PlayerPanel.gd" id="1_0ft6x"]
 [ext_resource type="PackedScene" path="res://battlescape/UI/UnitPanel.tscn" id="1_hokwi"]
@@ -9,6 +9,7 @@ offset_bottom = 647.0
 script = ExtResource("1_0ft6x")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
 offset_right = 342.0
 offset_bottom = 864.0
 grow_horizontal = 2
@@ -25,12 +27,14 @@ size_flags_vertical = 3
 metadata/_edit_layout_mode = 1
 
 [node name="PlayerTitle" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
 offset_right = 342.0
 offset_bottom = 26.0
 text = "[ PLAYER ]"
 horizontal_alignment = 1
 
 [node name="PlayerData" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
 offset_top = 30.0
 offset_right = 342.0
 offset_bottom = 56.0
@@ -38,12 +42,14 @@ text = "Player data"
 
 [node name="UnitPanel" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_hokwi")]
 custom_minimum_size = Vector2i(0, 400)
+layout_mode = 2
 offset_top = 60.0
 offset_right = 342.0
 offset_bottom = 460.0
 
 [node name="UnitPanel2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_hokwi")]
 custom_minimum_size = Vector2i(0, 400)
+layout_mode = 2
 offset_top = 464.0
 offset_right = 342.0
 offset_bottom = 864.0

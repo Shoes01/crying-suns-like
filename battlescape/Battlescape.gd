@@ -1,10 +1,11 @@
 extends Node
 
 
-@onready var mission_logic := $MissionLogic
 @onready var mission_UI := $MissionPanel
 @onready var player_UI := $PlayerPanel
 @onready var hud_UI := $HUDPanel
+
+var mission_logic: MissionLogic = load("res://battlescape/MissionLogic.gd").new()
 
 
 func _ready() -> void:

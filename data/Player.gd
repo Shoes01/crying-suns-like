@@ -1,15 +1,29 @@
 class_name Player
-extends Node
+extends Resource
 
 
-var soldier_count := 4
-var loot := 0
-
-var icons := {Icons.open_fire: 4, Icons.take_cover: 4}
-var strategies := {Strategies.waiting: 1, Strategies.starter: 1}
+var loot: int
+var units: Array
 
 
-func is_dead() -> bool:
-	if soldier_count <= 0: 
-		return true
-	return false
+func _init() -> void:
+	loot = 0
+	# PLACEHOLDER CODE
+	var unit_script: Resource = load("res://data/Unit.gd")
+	var unit_icons := {
+		Icons.take_cover : 3,
+		Icons.open_fire : 3,
+	}
+	var unit_strategies := {
+		Strategies.starter : 1,
+		Strategies.waiting : 1,
+	}
+	var unit_soldiers := {
+		Soldiers.base_soldier : 6,
+	}
+	
+	var it := 0
+	while it <= 2:
+		it += 1
+		var unit: Unit = unit_script.new(unit_soldiers, unit_icons, unit_strategies)
+		units.append(unit)

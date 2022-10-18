@@ -1,8 +1,4 @@
-class_name MissionGenerator
-extends Node
-
-
-var button_group := ButtonGroup.new()
+extends Resource
 
 
 func generate(mission: Mission) -> Array:
@@ -15,7 +11,6 @@ func generate(mission: Mission) -> Array:
 		new_node.set_position(Vector2(200 + 300*iter, -100 + 150*iter))
 		new_node.set_scale(Vector2(0.5, 0.5))
 		new_node.encounter_data = encounter
-		new_node.set_button_group(button_group)
 		results.append(new_node)
 	
 	return results

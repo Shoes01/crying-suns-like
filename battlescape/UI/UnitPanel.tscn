@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://dw5iyrv12lgc5"]
 
 [ext_resource type="Script" path="res://battlescape/UI/UnitPanel.gd" id="1_ahel8"]
 
@@ -34,26 +34,18 @@ text = "Soldiers"
 [node name="SoldierArea" type="VBoxContainer" parent="VBoxContainer/VBoxContainer"]
 offset_top = 30.0
 offset_right = 350.0
-offset_bottom = 34.0
-
-[node name="SoldierRow1" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/SoldierArea"]
-offset_right = 350.0
-
-[node name="SoldierRow2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/SoldierArea"]
-offset_top = 4.0
-offset_right = 350.0
-offset_bottom = 4.0
+offset_bottom = 30.0
 
 [node name="IconTitle" type="Label" parent="VBoxContainer/VBoxContainer"]
-offset_top = 38.0
+offset_top = 34.0
 offset_right = 350.0
-offset_bottom = 64.0
+offset_bottom = 60.0
 text = "Icons"
 
 [node name="IconArea" type="VBoxContainer" parent="VBoxContainer/VBoxContainer"]
-offset_top = 68.0
+offset_top = 64.0
 offset_right = 350.0
-offset_bottom = 72.0
+offset_bottom = 68.0
 
 [node name="IconRow1" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/IconArea"]
 offset_right = 350.0
@@ -64,16 +56,16 @@ offset_right = 350.0
 offset_bottom = 4.0
 
 [node name="Strategies" type="Label" parent="VBoxContainer/VBoxContainer"]
-offset_top = 76.0
+offset_top = 72.0
 offset_right = 350.0
-offset_bottom = 102.0
+offset_bottom = 98.0
 text = "Strategies
 "
 
 [node name="StrategyArea" type="VBoxContainer" parent="VBoxContainer/VBoxContainer"]
-offset_top = 106.0
+offset_top = 102.0
 offset_right = 350.0
-offset_bottom = 110.0
+offset_bottom = 106.0
 
 [node name="StrategyRow1" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/StrategyArea"]
 offset_right = 350.0
