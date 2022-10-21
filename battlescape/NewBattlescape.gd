@@ -1,6 +1,5 @@
 extends Node
 
-# Nodes.
 
 # Helper resouces.
 var mission_generator: Resource = load("res://battlescape/MissionGenerator.gd").new()
@@ -38,6 +37,10 @@ func _on_encounter_pressed(value) -> void:
 	print(value)
 
 
+func _on_unit_icon_buttons_pressed(value) -> void:
+	print("Icon pressed: ", str(value.title))
+
+
 func add_units(units: Array) -> void:
 	for unit in units:
 		add_unit(unit)
@@ -52,5 +55,4 @@ func add_unit(unit: Unit) -> void:
 	get_node("MenuLayer/PlayerPanel/ScrollContainer/VBoxContainer").add_child(unit_node)
 
 
-func _on_unit_icon_buttons_pressed(value) -> void:
-	print("Icon pressed: ", str(value.title))
+

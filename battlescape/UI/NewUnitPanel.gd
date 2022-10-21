@@ -1,4 +1,29 @@
-extends Panel
+extends PanelContainer
+
+
+func _populate_grid(type:String, unit: Unit, callable: Callable, button_group: ButtonGroup) -> void:
+	var dict : Dictionary
+	var node_path : String
+	
+	match type:
+		"soldiers":
+			dict = unit.soldiers
+			node_path = "VBoxContainer/SoldiersGrid"
+		"icons":
+			dict = unit.icons
+			node_path = "VBoxContainer/IconsGrid"
+		"strategies":
+			dict = unit.strategies
+			node_path = "VBoxContainer/StrategiesGrid"
+	
+	for key in dict:
+		# key : Node
+		var quantity: int = dict[key]
+		for n in quantity:
+			var new_icon := IconButton.new(key.sprite_path, key.color)
+			new_icon.set_button_group(button_group)
+			new_icon.pressed.connect(callable.bind(key)) # OPTIONAL : I can bind it.
+			get_node(node_path).add_child(new_icon)
 
 
 func prepare(unit: Unit, callable: Callable, button_group: ButtonGroup) -> void:
@@ -7,35 +32,6 @@ func prepare(unit: Unit, callable: Callable, button_group: ButtonGroup) -> void:
 	var icons: Dictionary = unit.icons
 	var strategies: Dictionary = unit.strategies
 	
-	# Populate Soldiers grid.
-	for key in soldiers:
-		var soldier: Node = key
-		var quantity: int = soldiers[key]
-		
-		for n in quantity:
-			var new_icon := IconButton.new(soldier.sprite_path, soldier.color)
-			new_icon.set_button_group(button_group)
-			new_icon.pressed.connect(callable.bind(soldier)) # OPTIONAL : I can bind it.
-			get_node("VBoxContainer/SoldiersGrid").add_child(new_icon)
-	
-	# Populate Icons grid.
-	for key in icons:
-		var icon: Node = key
-		var quantity: int = icons[key]
-		
-		for n in quantity:
-			var new_icon := IconButton.new(icon.sprite_path, icon.color)
-			new_icon.set_button_group(button_group)
-			new_icon.pressed.connect(callable.bind(icon)) # OPTIONAL : I can bind it.
-			get_node("VBoxContainer/IconsGrid").add_child(new_icon)
-	
-	# Populate Strategies grid.
-	for key in strategies:
-		var strategy: Node = key
-		var quantity: int = strategies[key]
-		
-		for n in quantity:
-			var new_icon := IconButton.new(strategy.sprite_path, strategy.color)
-			new_icon.set_button_group(button_group)
-			new_icon.pressed.connect(callable.bind(strategy)) # OPTIONAL : I can bind it.
-			get_node("VBoxContainer/StrategiesGrid").add_child(new_icon)
+	_populate_grid("soldiers", unit, callable, button_group)
+	_populate_grid("icons", unit, callable, button_group)
+	_populate_grid("strategies", unit, callable, button_group)
